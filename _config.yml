@@ -9,7 +9,7 @@ owner: GFDRR # or company name
 first_published: 2018 # if migrating another site, the year of your first publish
 email: your-email@domain.com
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://opencities.ithacaweb.org" # the base hostname & protocol for your site
 social:
   twitter: https://twitter.com/<username>
   github: https://github.com/<username>
