@@ -1,0 +1,9 @@
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ'
+var map = new mapboxgl.Map({
+    container: 'map',
+    zoom: {{ page.zoom }},
+    center: [{{ page.center-x}}, {{ page.center-y}}],
+    style: 'mapbox://styles/mapbox/satellite-v9'
+});
+</script>
