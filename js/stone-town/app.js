@@ -10,7 +10,7 @@ const to =
 
 const period = [from, to].map(d => d.toISOString().substr(0, 10)).join()
 const precision = 13
-const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/%7DsgzAbbtYu%7BU%7Cd%5BglSsuVkoBs%60KwsLckBsbJs%7BFccQpcA%7BkKmgH%7DzFor%5DcuEsyEibbAmxQ%7BuKyb%5ExbHsErkF%7D~CfnLmvZtrVu_U%7CaJtl%40xbL~dTzzFfqBtwPsyNrpZ%7BxLhpHcxJfiErfSbcDbth%40dvD%7CtLziBgNveJf%7DNafB%60pYraErxLxl%40z%60O?period=${period}`
+const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/kldnFburd%40mAvEoCtAYt%40uDtCyAlHcFtHmL~MeA%7DGfB%7DA%7BO%7Df%40mHa%5B_H%60CsUjAyFkCxDcHnCa%40RaApQoB%60%40k%40hCJhByCjBz%40z%40qAhGtDt%40mAOmDfFOZ~Lc%40v%40HzBp%40KNl%40k%40%40tCdF%7CFpDdBDdUrL?period=${period}`
 // const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/country/HTI?period=${period}&precision=${precision}`
 // const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/exnqFjwn%5EzNvvGhtHj%7D%40%7CyB_pCgAthBeoPtaDqaAr~CbrKkm%40j%7CJ%7CtZaPxfEa~KljCyy%40ubBc%7D%40ngDa%7DLa%7DK%7CmCpqBsxJytVhr%40crH%7De%40t%60B%7DxBm%7BCi_BwpTflAyeA%7CfAfqHbrCqvFslBy~RchFqi%40zZgyVdjDbqKoVosEdzDxxA%7BYtqEfoNwtJrlE%7CPziCmvGdx%40vyPqsDv%7CBvxBzEfQraK%7BfGvnDteFjuI?period=${period}`
 
