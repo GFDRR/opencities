@@ -17,7 +17,7 @@ const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/cnlqId%60e%5Bg
 function mountViz (data) {
   const datesUI = document.querySelector('#dates')
   const format = d => `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`
-  datesUI.innerHTML = `from: ${format(from)}, to: ${format(to)}`
+  datesUI.innerHTML = `${format(from)} - ${format(to)}`
   ODRI.inlineStat('#buildingsUsers', {
     data,
     featureType: 'buildings',
