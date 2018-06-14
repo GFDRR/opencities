@@ -62,6 +62,7 @@ navigationLinks:
  - {permalink: "/", text: "Home"}
 # - {permalink: "/blog/", text: "Blog"}
  - {permalink: "/about/", text: "About"}
+ - {permalink: "/resources/", text: "Resources"}
  - {permalink: "/accra/", text: "Accra"}
  - {permalink: "/antananarivo/", text: "Antananarivo"}
  - {permalink: "/brazzaville/", text: "Brazzaville"}
