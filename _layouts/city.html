@@ -1,6 +1,14 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    <div id="page-wrapper">
+
+      {% include header.html %}
+
 <article id="main">
 
   <div id="map">
@@ -13,8 +21,8 @@ layout: default
 
   <section class="wrapper style5">
     <div class="inner">
-      <h3>Mapping Analytics</h3>
-      {{ content }}
+      <h3>{{ page.title }}, {{ page.description }}</h3>
+        {{ content }}
       <h3>Date Range <span id="dates"></span></h3>
     		<div class="project-box">
           <dl>
@@ -35,8 +43,37 @@ layout: default
 
 </article>
 
+{% include footer.html %}
+
 {% include citymap.html %}
+
+</div>
 
 <script type="text/javascript" src="/js{{ page.permalink }}bundle.js"></script>
 <script src="/js/env.js" charset="utf-8"></script>
 <script src="/js{{ page.permalink }}app.js" charset="utf-8"></script>
+{% include scripts.html %}
+<script>
+/*
+Load more content with jQuery - May 21, 2013
+(c) 2013 @ElmahdiMahmoud
+*/
+
+$(function () {
+  $("p").slice(0, 4).show();
+  $("#loadMore").on('click', function (e) {
+      e.preventDefault();
+      $("p:hidden").slice(0, 4).slideDown();
+      if ($("p:hidden").length == 0) {
+          $("#loadMore").fadeOut('slow');
+      }
+      $('html,body').animate({
+          scrollTop: $(this).offset().top
+      }, 1500);
+  });
+});
+</script>
+
+</body>
+
+</html>

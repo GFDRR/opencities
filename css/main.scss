@@ -1237,6 +1237,13 @@ $baseurl: '{{ site.baseurl }}/images';
 			@include breakpoint(medium) {
 				width: 100%;
 			}
+			.readmore {
+				margin-top: -1rem;
+				padding-bottom: 2rem;
+				a {
+					text-decoration: none;
+				}
+			}
 		}
 
 		&.alt {
@@ -1798,6 +1805,16 @@ $baseurl: '{{ site.baseurl }}/images';
 					margin: 0 0 (_size(element-margin) * 0.5) 0;
 				}
 			}
+		}
+	}
+
+	.mapboxgl-ctrl-logo {
+		border: 0;
+	}
+
+	.mapboxgl-ctrl-attrib {
+		a {
+			border: 0;
 		}
 	}
 
