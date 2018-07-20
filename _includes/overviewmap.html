@@ -1,0 +1,149 @@
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    zoom: 2,
+    center: [20, -5],
+    style: 'mapbox://styles/mapbox/satellite-v9'
+});
+
+map.scrollZoom.disable();
+
+map.on('load', function () {
+
+    map.addLayer({
+        "id": "points",
+        "type": "symbol",
+        "source": {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": [{
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-0.1870, 5.6037]
+                    },
+                    "properties": {
+                        "title": "Accra",
+                        "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [47.5079, -18.8792]
+                    },
+                    "properties": {
+                      "title": "Antananarivo",
+                      "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [15.2429, -4.2634]
+                    },
+                    "properties": {
+                      "title": "Brazzaville",
+                      "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [32.5825, 0.3476]
+                    },
+                    "properties": {
+                      "title": "Kampala",
+                      "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [15.2663, -4.4419]
+                    },
+                    "properties": {
+                      "title": "Kinshasa",
+                      "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-10.7605, 6.2907]
+                    },
+                    "properties": {
+                      "title": "Monrovia",
+                      "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [13.5668, 7.3381]
+                    },
+                    "properties": {
+                      "title": "Ngaoundéré",
+                      "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [11.8664, -4.7692]
+                    },
+                    "properties": {
+                      "title": "Pointe-Noire",
+                      "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-16.4818, 16.0326]
+                    },
+                    "properties": {
+                      "title": "Saint-Louis",
+                      "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [39.1921, -6.1622]
+                    },
+                    "properties": {
+                      "title": "Stone Town",
+                      "icon": "circle-stroked"
+                    }
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [55.4513, -4.6191]
+                    },
+                    "properties": {
+                      "title": "Victoria",
+                      "icon": "circle-stroked"
+                    }
+                }]
+            }
+        },
+        "layout": {
+            "icon-image": "{icon}-11",
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top",
+            "text-size": 11
+        },
+        "paint": {
+          "text-color": "#ffffff"
+        }
+    });
+});
+
+</script>
