@@ -1839,17 +1839,19 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Footer */
 
 	#footer {
-		@include padding(4em, 0);
 		background-color: darken(_palette(bg), 8);
+		height: 12em;
+		padding: 2em 0;
 
 		.inner {
-			width: 60em;
+			font-size: 16px;
+			width: 1040px;
 			margin: 0 auto;
 			img {
-				margin-bottom: 5%;
-				margin-right: 5%;
-				vertical-align: top;
-				width: 20%;
+				left: 8px;
+				position: relative;
+				vertical-align:top;
+				width: 173px;
 			}
 		}
 
