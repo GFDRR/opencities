@@ -971,7 +971,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		.image {
 			@include vendor('order', '1');
 			border-radius: 0;
-			width: 40%;
+			width: 60%;
 
 			img {
 				border-radius: 0;
@@ -983,7 +983,10 @@ $baseurl: '{{ site.baseurl }}/images';
 			@include padding(2em, 4em);
 			@include vendor('order', '2');
 			max-width: 48em;
-			width: 60%;
+			width: 40%;
+			a {
+				border: 0;
+			}
 		}
 
 		&:nth-child(2n) {
@@ -1000,11 +1003,11 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		@include breakpoint(large) {
 			.image {
-				width: 45%;
+				width: 60%;
 			}
 
 			.content {
-				width: 55%;
+				width: 40%;
 			}
 		}
 
@@ -1024,12 +1027,18 @@ $baseurl: '{{ site.baseurl }}/images';
 				max-width: none;
 				text-align: center;
 				width: 100%;
+				ul {
+					list-style-type: none;
+				}
 			}
 		}
 
 		@include breakpoint(small) {
 			.content {
 				@include padding(3em, 2em);
+				ul {
+					list-style-type: none;
+				}
 			}
 		}
 	}
@@ -1830,17 +1839,35 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Footer */
 
 	#footer {
-		@include padding(4em, 0);
 		background-color: darken(_palette(bg), 8);
+		height: 12em;
+		padding: 3em 0;
 
 		.inner {
-			width: 60em;
+			font-size: 16px;
 			margin: 0 auto;
-			img {
-				margin-bottom: 5%;
-				margin-right: 5%;
-				vertical-align: top;
-				width: 20%;
+			max-width:1024px;
+			.left-logos {
+				float: left;
+				img {
+					left: 8px;
+					margin-bottom: 2rem;
+					margin-right: 8px;
+					position: relative;
+					vertical-align: top;
+					height: 40px;
+				}
+			}
+			.right-logos {
+				float: right;
+				img {
+					right: 8px;
+					margin-left: 8px;
+					padding-bottom: 2rem;
+					position: relative;
+					vertical-align: top;
+					height: 120px;
+				}
 			}
 		}
 
