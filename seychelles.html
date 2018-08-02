@@ -1,8 +1,8 @@
 ---
 layout: city
-title: Victoria
+title: Seychelles
 description: Seychelles
-permalink: /victoria/
+permalink: /seychelles/
 zoom: 15
 center-x: 55.46
 center-y: -4.6
@@ -10,9 +10,7 @@ center-y: -4.6
 	<p>The majority of the Seychelles population is spread across three islands (Mahe, Praslin and La Digue). Because of the topography of the islands (i.e. flat coastal strips and/or plateaus rising into steep mountains towards the inner part of the island) many of the residential and commercial areas are located along the coast. These areas are prone to urban flooding, coastal erosion and coastal flooding. Urban flooding is a recurring problem that shows especially during the rainy season in December and January. Missing, under-dimensioned and poorly maintained drainage in many districts adds to the problem.</p>
 	<p>While the flooding affects many sectors the Open Cities Africa Seychelles Project is focusing on tourism. Tourism is the main source of economy (next to fishing) in the Seychelles and can be seriously impacted by the mentioned hazards. Together with the Tourism Department and the Department for Disaster and Risk Management the Project will collect data on tourism establishments and public buildings (schools, day-cares, etc.) located in the coastal areas (areas below 10m elevation) on the islands of Mahe, Praslin and La Digue. Details to be collected include occupancy of the building, material, number of floors, whether the building is elevated, location of assembly points, etc. This will help the stakeholders to better understand and visualize risk and lead to more informed decisions at the various phases of disaster risk management e.g. to improve preparedness and plan for evacuation.</p>
 	<p>For the mapping and data collection activities the Project is engaging local communities (such as secondary school teachers and students) and building capacity within these communities. The Project will train community members on state-of-art geospatial technology that will enable them to collect/capture, analyze, visualize and share data for numerous purposes i.e. even beyond the scope of this project.</p>
-	<h3>Mapping Progress to Date</h3>
-	<span>This section provides an overview of mapping activities in the selected city geographic extent. The Before/After widget below allows comparing current density and distribution of map features with snapshots from previous years. The time chart of OSM editing activity over time offers insights on how many features have been contributed to the map over a specified period.</span>
+	{% include mapping-progress.html %}
 	<iframe src="http://osm-analytics.org/#/compare/polygon:cnlqId%60e%5BgB%7CYmKg%40ma%40z%40kBuX%7BMgRdU%7BO~%5DqGdNx%5B/2016...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
-	<h3>Data Quality</h3>
-	<span>While OSM coverage keeps increasing, it's important to also understand quality of the data created. The tools available in this section allow for comparing OSM data with other "reference" datasets. These could be, for example, official datasets from government agencies showing distribution of features with those available OSM. The "Gap Detection" widget provides a visual representation of potential gaps in data, by comparing the latest OSM buildings with built-up areas automatically detected from satellite imagery.</span>
+	{% include data-quality.html %}
 	<iframe src="http://osm-analytics.org/#/gaps/polygon:cnlqId%60e%5BgB%7CYmKg%40ma%40z%40kBuX%7BMgRdU%7BO~%5DqGdNx%5B/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>

@@ -12,6 +12,14 @@
                 <a class="{% if navigationLink.permalink != null and page.permalink == navigationLink.permalink %}current{% endif %}"  href="{% if navigationLink.permalink != null %} {{ navigationLink.permalink | prepend: site.baseurl }} {% else %} {{ navigationLink.link }} {% endif %}" {% if navigationLink.link != null %}target="_blank"{% endif %}>{{ navigationLink.text}}</a>
             </li>
           {% endfor %}
+            <li><a href="#">Open Cities</a></li>
+              <ul id="submenu">
+                {% for cityLink in site.cityLinks %}
+                  <li>
+                      <a class="cityLinks {% if cityLink.permalink != null and page.permalink == cityLink.permalink %}current{% endif %}"  href="{% if cityLink.permalink != null %} {{ cityLink.permalink | prepend: site.baseurl }} {% else %} {{ cityLink.link }} {% endif %}" {% if cityLink.link != null %}target="_blank"{% endif %}>{{ cityLink.text}}</a>
+                  </li>
+                {% endfor %}
+              </ul>
           </ul>
         </div>
       </li>
