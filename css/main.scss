@@ -1789,17 +1789,19 @@ $baseurl: '{{ site.baseurl }}/images';
 			}
 
 			h4 {
+				border-bottom: 1px solid white;
+				display:inline-block;
 				font-size: 1em;
 				font-weight: 400;
 				margin: 0 0 (_size(element-margin) * 0.25) 0;
+				width: auto;
 			}
 
 			p {
 				color: inherit;
 				letter-spacing: _size(letter-spacing-alt);
+				margin-top: -1rem;
 				text-transform: uppercase;
-				top: 0;
-
 				a {
 					color: inherit;
 				}
