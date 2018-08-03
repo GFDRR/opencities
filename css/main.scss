@@ -1519,7 +1519,10 @@ $baseurl: '{{ site.baseurl }}/images';
 		overflow: hidden;
 		position: relative;
 		text-align: center;
-
+		img {
+			min-width: 240px;
+			width: 25%;
+		}
 		h2 {
 			@include vendor('transform', 'scale(1)');
 			@include vendor('transition', ('transform 0.5s ease', 'opacity 0.5s ease'));
@@ -1555,7 +1558,6 @@ $baseurl: '{{ site.baseurl }}/images';
 		p {
 			letter-spacing: _size(letter-spacing-alt);
 			text-transform: uppercase;
-
 			a {
 				color: inherit;
 			}
