@@ -992,6 +992,9 @@ $baseurl: '{{ site.baseurl }}/images';
 			a {
 				border: 0;
 			}
+			small {
+				font-size: 12px;
+			}
 		}
 
 		&:nth-child(2n) {
@@ -1670,6 +1673,9 @@ $baseurl: '{{ site.baseurl }}/images';
 
 				p {
 					color: inherit;
+				}
+				small {
+					font-size: 12px;
 				}
 			}
 
