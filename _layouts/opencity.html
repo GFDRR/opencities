@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    <div id="page-wrapper">
+
+      {% include header.html %}
+
+<article id="main">
+
+  <div id="map" style=" background:url(/images/{{ page.title }}.jpg); background-size: cover; background-repeat: no-repeat; background-position: center bottom">
+    <header>
+      <h4>Open Cities</h4>
+      <h2>{{ page.title }}</h2>
+      <p>{{ page.description }}</p>
+    </header>
+  </div>
+
+  <section class="wrapper style5">
+    <div class="inner">
+      <h3>{{ page.title }}, {{ page.description }}</h3>
+        {{ content }}
+      <h3>OSM Community Dynamics</h3>
+      <span>Understanding mapping progress and data quality also requires looking at the local OSM community and how mappers have contributed over time. Embedded widgets in this sections allow e.g. exploring the list of top mappers who contributed to features within the city extent, with links to their OSM user profile page. A time chart of number of user contributions over pre-defined time periods (daily, weekly, monthly), also provides a picture of how consistent the mapping activity in the area is.</span>
+      <h4>Date Range <span id="dates"></span></h4>
+    		<div class="project-box">
+          <dl>
+            <!-- <dt>Daily activity in the area</dt> -->
+            <dd id="activity">
+              <div style="background-color: #f0f0f0;height: 320px;margin: 1rem 0;width: 100%;background-image: url(/images/loading_2x_360.gif);background-repeat: no-repeat;background-position: center;background-size: 35px;"></div>
+            </dd>
+          </dl>
+        </div>
+        <div id="overallStats"></div>
+        <div id="contributors"></div>
+        <span><span id="buildingsUsers"></span> users made <span id="buildingsActivity"></span> contributions</span>
+    </div>
+  </section>
+
+  <div></div>
+
+</article>
+
+{% include footer.html %}
+
+</div>
+
+<script type="text/javascript" src="/js{{ page.permalink }}bundle.js"></script>
+<script src="/js/env.js" charset="utf-8"></script>
+<script src="/js{{ page.permalink }}app.js" charset="utf-8"></script>
+{% include scripts.html %}
+<script>
+/*
+Load more content with jQuery - May 21, 2013
+(c) 2013 @ElmahdiMahmoud
+*/
+
+$(function () {
+  $("p").slice(0, 4).show();
+  $("#loadMore").on('click', function (e) {
+      e.preventDefault();
+      $("p:hidden").slice(0, 4).slideDown();
+      if ($("p:hidden").length == 0) {
+          $("#loadMore").fadeOut('slow');
+      }
+      $('html,body').animate({
+          scrollTop: $(this).offset().top
+      }, 1500);
+  });
+});
+</script>
+
+</body>
+
+</html>

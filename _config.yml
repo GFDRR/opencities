@@ -33,7 +33,7 @@ cityLinks:
   - {permalink: "/accra/", text: "Accra"}
   - {permalink: "/antananarivo/", text: "Antananarivo"}
   - {permalink: "/brazzaville/", text: "Brazzaville"}
-  - {permalink: "/kampala/", text: "Kampala"}
+  - {permalink: "/uganda/kampala/", text: "Kampala"}
   - {permalink: "/kinshasa/", text: "Kinshasa"}
   - {permalink: "/monrovia/", text: "Monrovia"}
   - {permalink: "/ngaoundere/", text: "Ngaoundéré"}
