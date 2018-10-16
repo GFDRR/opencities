@@ -1886,21 +1886,22 @@ $baseurl: '{{ site.baseurl }}/images';
 			max-width:1024px;
 			.left-logos {
 				img {
-					left: 8px;
+					left: 0;
 					margin-bottom: 2rem;
-					margin-right: 8px;
+					margin-right: 1rem;
 					vertical-align: top;
 					height: 40px;
 				}
 			}
 			.right-logos {
+				p {
+					text-align: right;
+				}
 				img {
-					right: 8px;
-					margin-left: 8px;
+					margin-left: 0;
 					padding-bottom: 2rem;
-					right: 0;
 					vertical-align: top;
-					height: 120px;
+					height: 140px;
 				}
 			}
 		}
