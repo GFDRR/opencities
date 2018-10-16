@@ -1876,33 +1876,32 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	#footer {
 		background-color: darken(_palette(bg), 8);
-		height: 12em;
+		display: block;
 		padding: 3em 0;
-
 		.inner {
+			display: flex;
+			justify-content: space-between;
 			font-size: 16px;
 			margin: 0 auto;
 			max-width:1024px;
 			.left-logos {
-				float: left;
 				img {
-					left: 8px;
+					left: 0;
 					margin-bottom: 2rem;
-					margin-right: 8px;
-					position: relative;
+					margin-right: 1rem;
 					vertical-align: top;
 					height: 40px;
 				}
 			}
 			.right-logos {
-				float: right;
+				p {
+					text-align: right;
+				}
 				img {
-					right: 8px;
-					margin-left: 8px;
+					margin-left: 0;
 					padding-bottom: 2rem;
-					position: relative;
 					vertical-align: top;
-					height: 120px;
+					height: 140px;
 				}
 			}
 		}
