@@ -27,6 +27,7 @@ permalink: pretty
 navigationLinks:
  - {permalink: "/", text: "Home"}
  - {permalink: "/about/", text: "About"}
+ - {permalink: "#footer", text: "Partners"}
  - {permalink: "/resources/", text: "Resources"}
 
 cityLinks:
