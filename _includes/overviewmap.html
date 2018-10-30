@@ -1,149 +1,267 @@
-
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
-var map = new mapboxgl.Map({
-    container: 'map',
-    zoom: 2,
-    center: [20, -5],
-    style: 'mapbox://styles/mapbox/satellite-v9'
-});
-
-map.scrollZoom.disable();
-
-map.on('load', function () {
-
-    map.addLayer({
-        "id": "points",
-        "type": "symbol",
-        "source": {
-            "type": "geojson",
-            "data": {
-                "type": "FeatureCollection",
-                "features": [{
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-0.1870, 5.6037]
-                    },
-                    "properties": {
-                        "title": "Accra",
-                        "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [47.5079, -18.8792]
-                    },
-                    "properties": {
-                      "title": "Antananarivo",
-                      "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [15.2429, -4.2634]
-                    },
-                    "properties": {
-                      "title": "Brazzaville",
-                      "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [32.5825, 0.3476]
-                    },
-                    "properties": {
-                      "title": "Kampala",
-                      "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [15.2663, -4.4419]
-                    },
-                    "properties": {
-                      "title": "Kinshasa",
-                      "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-10.7605, 6.2907]
-                    },
-                    "properties": {
-                      "title": "Monrovia",
-                      "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [13.5668, 7.3381]
-                    },
-                    "properties": {
-                      "title": "Ngaoundéré",
-                      "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [11.8664, -4.7692]
-                    },
-                    "properties": {
-                      "title": "Pointe-Noire",
-                      "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-16.4818, 16.0326]
-                    },
-                    "properties": {
-                      "title": "Saint-Louis",
-                      "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [39.1921, -6.1622]
-                    },
-                    "properties": {
-                      "title": "Stone Town",
-                      "icon": "circle-stroked"
-                    }
-                }, {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [55.4513, -4.6191]
-                    },
-                    "properties": {
-                      "title": "Victoria",
-                      "icon": "circle-stroked"
-                    }
-                }]
-            }
-        },
-        "layout": {
-            "icon-image": "{icon}-11",
-            "text-field": "{title}",
-            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            "text-offset": [0, 0.6],
-            "text-anchor": "top",
-            "text-size": 11
-        },
-        "paint": {
-          "text-color": "#ffffff"
-        }
+  mapboxgl.accessToken = 'pk.eyJ1Ijoic21pY2tpZSIsImEiOiJjaWtiM2JkdW0wMDJudnRseTY0NWdrbjFnIn0.WxGYL18BJjWUiNIu-r3MSA';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/satellite-v9',
+      zoom: 2,
+      center: [20, -5],
+      interactive: true
     });
-});
+
+    map.on('style.load', function (e) {
+      map.addSource('labels', {
+          "type": "geojson",
+          "data": {
+              "type": "FeatureCollection",
+              "features": [{
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-0.1870, 5.6037]
+                  },
+                  "properties": {
+                      "title": "Accra",
+                      "description": "Accra, Ghana",
+                      "url": "accra",
+                      "modelId": 2,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [47.5079, -18.8792]
+                  },
+                  "properties": {
+                    "title": "Antananarivo",
+                    "description": "Antananarivo, Madagascar",
+                    "url": "antananarivo",
+                    "modelId": 2,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [15.2429, -4.2634]
+                  },
+                  "properties": {
+                    "title": "Brazzaville",
+                    "description": "Brazzaville, ROC",
+                    "url": "brazzaville",
+                    "modelId": 4,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [32.5825, 0.3476]
+                  },
+                  "properties": {
+                    "title": "Kampala",
+                    "description": "Kampala, Uganda",
+                    "url": "uganda/kampala",
+                    "modelId": 2,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [15.2663, -4.5]
+                  },
+                  "properties": {
+                    "title": "Kinshasa",
+                    "description": "Kinshasa, DRC",
+                    "url": "kinshasa",
+                    "modelId": 5,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-10.7605, 6.2907]
+                  },
+                  "properties": {
+                    "title": "Monrovia",
+                    "description": "Monrovia, Liberia",
+                    "url": "monrovia",
+                    "modelId": 2,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [13.5668, 7.3381]
+                  },
+                  "properties": {
+                    "title": "Ngaoundéré",
+                    "description": "Ngaoundéré, Cameroon",
+                    "url": "ngaoundere",
+                    "modelId": 2,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [11.8664, -4.7692]
+                  },
+                  "properties": {
+                    "title": "Pointe-Noire",
+                    "description": "Pointe-Noire, ROC",
+                    "url": "pointe-noire",
+                    "modelId": 3,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-16.4818, 16.0326]
+                  },
+                  "properties": {
+                    "title": "Saint-Louis",
+                    "description": "Saint-Louis, Senegal",
+                    "url": "saint-louis",
+                    "modelId": 3,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [55.4513, -4.6191]
+                  },
+                  "properties": {
+                    "title": "Seychelles",
+                    "description": "Seychelles",
+                    "url": "seychelles",
+                    "modelId": 2,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [39.1921, -6.1622]
+                  },
+                  "properties": {
+                    "title": "Zanzibar City",
+                    "description": "Zanzibar City, Tanzania",
+                    "url": "zanzibar-city",
+                    "modelId": 2,
+                  }
+              }]
+          }
+      });
+      map.addLayer({
+          "id": "circles",
+          "source": "labels",
+          "type": "circle",
+          "paint": {
+              "circle-radius": 3.5,
+              "circle-color": "#ffffff",
+              "circle-opacity": 1,
+              "circle-stroke-color": "#000000",
+              "circle-stroke-width": 1,
+          },
+      });
+      map.addLayer({
+          "id": "labels",
+          "source": "labels",
+          "type": "symbol",
+          "layout": {
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold"],
+            "text-offset": [0, -1.5],
+            "text-anchor": "top",
+            "text-size": 11,
+            "text-allow-overlap": true,
+            "text-ignore-placement": true,
+          },
+          "paint": {"text-color": "#ffffff"},
+          "filter": ["==", "modelId", 2],
+      });
+      map.addLayer({
+          "id": "labels-3",
+          "source": "labels",
+          "type": "symbol",
+          "layout": {
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold"],
+            "text-offset": [-0.75, 0],
+            "text-anchor": "right",
+            "text-size": 11,
+            "text-allow-overlap": true,
+            "text-ignore-placement": true,
+          },
+          "paint": {"text-color": "#ffffff"},
+          "filter": ["==", "modelId", 3],
+      });
+      map.addLayer({
+          "id": "labels-4",
+          "source": "labels",
+          "type": "symbol",
+          "layout": {
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold"],
+            "text-offset": [0, -0.5],
+            "text-anchor": "bottom-left",
+            "text-size": 11,
+            "text-allow-overlap": true,
+            "text-ignore-placement": true,
+          },
+          "paint": {"text-color": "#ffffff"},
+          "filter": ["==", "modelId", 4],
+      });
+      map.addLayer({
+          "id": "labels-5",
+          "source": "labels",
+          "type": "symbol",
+          "layout": {
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold"],
+            "text-offset": [0.5, 0.25],
+            "text-anchor": "top-left",
+            "text-size": 11,
+            "text-allow-overlap": true,
+            "text-ignore-placement": true,
+          },
+          "paint": {"text-color": "#ffffff"},
+          "filter": ["==", "modelId", 5],
+      });
+    });
+    // disable map rotation using right click + drag
+    map.dragRotate.disable();
+
+    // disable map rotation using touch rotation gesture
+    map.touchZoomRotate.disableRotation();
+
+    // When a click event occurs on a feature in the places layer, open a popup at the
+    // location of the feature, with description HTML from its properties.
+    map.on('click', 'circles', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.description;
+        var url = e.features[0].properties.url;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            //.setHTML(description)
+            .setHTML('<p><a href="https://opencitiesproject.org/'+ url +'/">' + description + '</a></p>')
+            .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'circles', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'circles', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.scrollZoom.disable();
 
 </script>

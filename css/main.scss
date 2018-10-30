@@ -1674,6 +1674,33 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 	}
 
+	#two {
+		.content {
+			a {
+				border-bottom: 0;
+				&:hover {
+					color: white;
+					border-bottom: 1px solid #fff;
+				}
+			}
+		}
+	}
+
+/* Feed Parser */
+
+	#feed {
+		h3 {
+			margin: 0;
+		}
+		a {
+			border-bottom: 0;
+			&:hover {
+				color: white;
+				border-bottom: 1px solid #fff;
+			}
+		}
+	}
+
 /* CTA */
 
 	#cta {
