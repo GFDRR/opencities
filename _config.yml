@@ -42,3 +42,6 @@ cityLinks:
   - {permalink: "/saint-louis/", text: "Saint-Louis"}
   - {permalink: "/seychelles/", text: "Seychelles"}
   - {permalink: "/zanzibar-city/", text: "Zanzibar City"}
+
+collections:
+  - external_feed

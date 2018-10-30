@@ -65,6 +65,16 @@ layout: landing
 
 					</section>
 
+					<section id="feed" class="wrapper style3">
+						<div class="inner">
+							{% for e in site.external_feed %}
+								<h3><a href="{{ e.link }}">{{ e.title }}</a></h3>
+								<p>by {{ e.author }} on {{ e.published | date_to_long_string }}<br/>
+								{{ e.summary }}</p>
+							{% endfor %}
+						</div>
+					</section>
+
 					<section id="cta" class="wrapper style4">
 						<div class="inner">
 							<header>
