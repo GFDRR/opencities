@@ -1689,8 +1689,11 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Feed Parser */
 
 	#feed {
-		h3 {
-			margin: 0;
+		h2 {
+			margin-bottom: 3rem;;
+		}
+		h4 {
+			margin-bottom: 0;
 		}
 		a {
 			border-bottom: 0;
@@ -2007,7 +2010,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	body.landing {
 		#page-wrapper {
 			//@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/drone2.jpg")'));
+			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -2056,6 +2059,10 @@ $baseurl: '{{ site.baseurl }}/images';
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
+			}
+
+			#map {
+				max-height: 50%;
 			}
 
 			#footer {
