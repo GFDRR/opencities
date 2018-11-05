@@ -1909,14 +1909,11 @@ $baseurl: '{{ site.baseurl }}/images';
 		display: block;
 		padding: 3em 0;
 		.inner {
-			display: flex;
-			justify-content: space-between;
 			font-size: 16px;
 			margin: 0 auto;
-			max-width:1024px;
+			max-width: 60em;
 			.left-logos {
 				img {
-					left: 0;
 					margin-bottom: 2rem;
 					margin-right: 1rem;
 					vertical-align: top;
@@ -1924,11 +1921,11 @@ $baseurl: '{{ site.baseurl }}/images';
 				}
 			}
 			.right-logos {
+				text-align: right;
 				p {
-					text-align: right;
+
 				}
 				img {
-					margin-left: 0;
 					padding-bottom: 2rem;
 					vertical-align: top;
 					height: 140px;
