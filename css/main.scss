@@ -1286,6 +1286,11 @@ $baseurl: '{{ site.baseurl }}/images';
 			background-color: $uganda;
 		}
 
+		&.rss-feed {
+			background-color: white;
+			color: $onyx;
+		}
+
 		&.style2 {
 			background-color: _palette(bg);
 		}
@@ -1689,7 +1694,10 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Feed Parser */
 
 	#feed {
+		.inner {
+		}
 		h2 {
+			color: $onyx;
 			margin-bottom: 3rem;;
 		}
 		h4 {
@@ -1697,9 +1705,21 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 		a {
 			border-bottom: 0;
+			color: $green;
 			&:hover {
-				color: white;
-				border-bottom: 1px solid #fff;
+				color: $onyx;
+				border-bottom: 1px solid $onyx;
+			}
+		}
+		.actions {
+			@include vendor('order', '2');
+			margin: 2rem auto 0;
+			width: 30%;
+			border: 1px solid $green;
+			border-radius: 3px;
+			a:hover {
+				color: $onyx;
+				border-bottom: 0;
 			}
 		}
 	}
