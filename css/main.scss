@@ -1722,6 +1722,28 @@ $baseurl: '{{ site.baseurl }}/images';
 				border-bottom: 0;
 			}
 		}
+		@include breakpoint(medium) {
+		  display: block;
+		  text-align: center;
+
+		  header {
+		    padding-right: 0;
+		    width: 100%;
+		  }
+
+		  .actions {
+		    margin-left: auto;
+		    margin-right: auto;
+		    max-width: 20em;
+		    width: 100%;
+		  }
+		}
+
+		@include breakpoint(small) {
+		  .actions {
+		    max-width: none;
+		  }
+		}
 	}
 
 /* CTA */
