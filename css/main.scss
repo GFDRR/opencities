@@ -1964,13 +1964,16 @@ $baseurl: '{{ site.baseurl }}/images';
 			}
 			.right-logos {
 				text-align: right;
-				p {
-
-				}
 				img {
-					padding-bottom: 2rem;
+					margin-bottom: 2rem;
 					vertical-align: top;
-					height: 140px;
+					height: 40px;
+				}
+				img.mid-logo {
+					height: 60px;
+				}
+				img.small-logo {
+					height: 100px;
 				}
 			}
 		}
