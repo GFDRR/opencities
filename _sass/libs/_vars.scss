@@ -6,8 +6,8 @@
 
 $onyx: #373737;
 $purple: #9984c1;
-$green: #70926f;
-$zomp: #409798;
+$green: #548b5e; //#70926f;
+$zomp: #548b5e; //#409798;
 $red: #c77c7a;
 $yellow: #fad978;
 
@@ -22,9 +22,9 @@ $uganda: #f06453;
 
 // Duration.
 	$duration: (
-		transitions:		0.2s,
-		menu:				0.5s,
-		fadein:				3s
+		transitions:  0.2s,
+		menu:         0.5s,
+		fadein:       3s
 	);
 
 // Size.
