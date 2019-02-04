@@ -10,9 +10,7 @@ const to =
 
 const period = [from, to].map(d => d.toISOString().substr(0, 10)).join()
 const precision = 13
-const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/kvi%7BA%7C~bZckGxcD_OlwHug%60%40pvW_lQkhUqse%40dzIsDztKspKvjKvdKdxZesCp~U%7BjKjkI%7DhSJ%7BvFeb%60%40mlGftDkyA%60%7CM_j%60AbfDeAc%7Dn%40asHugDe%7BNmgn%40caRp_A%7DhGwtV%7CgDy%7DQjhQiaTz%7C_%40gsQjqm%40avJpoHweMrcnAphTlpRjuh%40~vp%40rhL?period=${period}`
-// const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/country/HTI?period=${period}&precision=${precision}`
-// const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/exnqFjwn%5EzNvvGhtHj%7D%40%7CyB_pCgAthBeoPtaDqaAr~CbrKkm%40j%7CJ%7CtZaPxfEa~KljCyy%40ubBc%7D%40ngDa%7DLa%7DK%7CmCpqBsxJytVhr%40crH%7De%40t%60B%7DxBm%7BCi_BwpTflAyeA%7CfAfqHbrCqvFslBy~RchFqi%40zZgyVdjDbqKoVosEdzDxxA%7BYtqEfoNwtJrlE%7CPziCmvGdx%40vyPqsDv%7CBvxBzEfQraK%7BfGvnDteFjuI?period=${period}`
+const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/%7Diw%7CA%7CbzYOvDy%40tAiFnAw%40t%40G%7CC%7C%40x%40hCZtBzAx%40%60Gq%40lEeBvBChCqFdIWzGl%40dCx%40z%40pHfAdI%7CIbAzB_%40bBp%40%60D%5DbGa%40dBcCzAgAxBaAnJ%5C%60BjH~G%7BCnRvAbC%60MtAzBlDs%40tCkAdAqATiJi%40mHzAkAdBXzBbGdA%60CfBdFxH%7CAfEDv%40mANkGc%40_AZeBfD%7C%40~C%60FrCKdA%7DBvDDhBvA~BKlC%7CDnAtAjCtBj%40fGHlBxBbCdAxGDv%40OpB%7BBjCyA%60A%7BBpDkCfDYdDqAlRkC%7CEaBvJi%40pDwAlQiCxEoD%7CEuK%60F%7BHz%40oE~A%3F~%40%7BBjDu%40rCwBzDaA%60DsBReBnCy%40zDKjEn%40%5CrAjHnHhCRfBrCfE~AbBTbBs%40jTtBfDGrDsAhABvDkN%7D%40yAPuAkE%7BHbAy%40%7DEiHdAs%40iFgGx%40%7B%40oCuEfB%7DAmHiGsI%7BAyE_DyJcBkDaG%7BDuDq%40RiBy%40%7DFU_BiBsACiAeH~%40w%40VaIw%40aBYyC%5CuAzCcCb%40%7DAAeFq%40wAC%7BCcAA%7DAoCOgCoBgDk%40oBDgEcAyFmF%7DEmAImA%7B%40iBaCEeGkDw%40i%40cCNgH%7DDoIL_CoCmC_E%7BIkBu%40%5BiD%7BAcC%5DuCyCyBd%40%7BFp%40%7B%40CwBiBwAsB%7BDaFuA_Nw%40yHuK%7DE%7B%40iDL%7D%40WwGlH%7BKjGwvA%60a%40jAtB~EcCrBFtA%7C%40JrAcAtH%5CnEk%40tC%7DArAmAzGsBrA_Ir%40%5B%60AZfApCvFlIf%40%7CBbAnB~D%7CGnB?period=${period}`
 
 function mountViz (data) {
   const datesUI = document.querySelector('#dates')

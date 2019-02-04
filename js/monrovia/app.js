@@ -10,9 +10,7 @@ const to =
 
 const period = [from, to].map(d => d.toISOString().substr(0, 10)).join()
 const precision = 13
-const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/d%60%60aAumqe%40lLbjAy%7DDbrByuF~aDyoDh%5Dk~Dl~D%7DtKdmAo%5DutCb~AmDz%5Cy%7C%40flAeiAwu%40quCfb%40%7D%7CHrm%40ij%40tgA%7CGfnBvDtlBegBix%40mvCzNmsClzAgbA%60eCeTfu%40lkBrt%40fZprEzn%40baBniAkTx%7DD%7CfAddB?period=${period}`
-// const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/country/HTI?period=${period}&precision=${precision}`
-// const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/exnqFjwn%5EzNvvGhtHj%7D%40%7CyB_pCgAthBeoPtaDqaAr~CbrKkm%40j%7CJ%7CtZaPxfEa~KljCyy%40ubBc%7D%40ngDa%7DLa%7DK%7CmCpqBsxJytVhr%40crH%7De%40t%60B%7DxBm%7BCi_BwpTflAyeA%7CfAfqHbrCqvFslBy~RchFqi%40zZgyVdjDbqKoVosEdzDxxA%7BYtqEfoNwtJrlE%7CPziCmvGdx%40vyPqsDv%7CBvxBzEfQraK%7BfGvnDteFjuI?period=${period}`
+const apiUrl = `${process.env.SANDBOX_ENDPOINT}/stats/all/polygon/xky%60Ay%60te%40KFOFMNc%40Y%5BFIBODQJIFGDE%3FGBAE%3FKIBG%3FG%3FG%3FEAE%3FG%3FG%3FI%3FI%3FKAKCKCGCU%3FMMQb%40MN_%40VABMNKLS%5EU%60%40UVKLQLY%60AUr%40_%40bAUjADvBXfBj%40%60Ax%40v%40p%40dBt%40tB~%40vAf%40~%40h%40p%40fAlAz%40j%40xA%60%40%60Ch%40~AVfBCbCm%40tHwF%7CBE%7CA%5D%7CAo%40lB%40tDhArNfJdSlFbBoAzBmCdC_CqCiIbImB%7BA_GgO%60FoK_AwFlApApHo%40tCeJqFiDqBcEk%40t%40uBHeCQm%40w%40%3Fw%40Ok%40Be%40Ee%40Y%5B%5BWQY_%40SUiAcAwBoBsAgAyAeA%7BBiAeAo%40mAg%40mAg%40SQ_%40U?period=${period}`
 
 function mountViz (data) {
   const datesUI = document.querySelector('#dates')
