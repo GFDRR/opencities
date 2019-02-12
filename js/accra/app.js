@@ -1,13 +1,17 @@
 "use strict";
 
+
 var _window = window,
     ODRI = _window.ODRI,
     fetch = _window.fetch,
     process = _window.process,
     URL = _window.URL;
-var url = new URL(window.location.href);
-var from = url.searchParams.get('from') && new Date(url.searchParams.get('from')) || new Date(2018, 0, 1);
-var to = url.searchParams.get('to') && new Date(url.searchParams.get('to')) || new Date();
+
+var from = new Date(2018, 0, 1);
+var to = new Date();
+
+//var from = url.searchParams.get('from') && new Date(url.searchParams.get('from')) || new Date(2018, 0, 1);
+//var to = url.searchParams.get('to') && new Date(url.searchParams.get('to')) || new Date();
 var period = [from, to].map(function (d) {
   return d.toISOString().substr(0, 10);
 }).join();
@@ -22,6 +26,7 @@ function mountViz(data) {
   };
 
   datesUI.innerHTML = "".concat(format(from), " - ").concat(format(to));
+
   ODRI.inlineStat('#buildingsUsers', {
     data: data,
     featureType: 'buildings',
@@ -87,11 +92,15 @@ function timeoutPromise(timeout, err, promise) {
   return new Promise(function (resolve, reject) {
     promise.then(resolve, reject);
     setTimeout(reject.bind(null, err), timeout);
+
   });
 }
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
   timeoutPromise(20000, new Error('Server timed out!'), fetch(apiUrl)).then(function (r) {
     return r.json();
   }).then(mountViz);
-});
+}
+);
