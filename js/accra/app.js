@@ -76,7 +76,7 @@ function mountViz(data) {
       default_feature_type: 'buildings',
       // iframe_base_url:
       // polygon:
-      default_start_year: '2016',
+      default_start_year: '2018',
       default_end_year: 'now'
     }
   });
