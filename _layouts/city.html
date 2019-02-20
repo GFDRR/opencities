@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+  {% include cityhead.html %}
 
-  <body>
+  <body class="city">
 
     <div id="page-wrapper">
 
@@ -11,13 +11,13 @@
 
 <article id="main">
 
-  <div id="map">
-    <header>
-      <h4>Open Cities</h4>
-      <h2>{{ page.title }}</h2>
-      <p>{{ page.description }}</p>
-    </header>
-  </div>
+  <section id="one" class="wrapper style1 special">
+    <div class="inner">
+      <header class="major">
+        <h1>{{ page.title }}</h1>
+      </header>
+    </div>
+  </section>
 
   <section class="wrapper style5">
     <div class="inner">
@@ -35,7 +35,7 @@
         </div>
         <div id="contributors"></div>
         <span><span id="buildingsUsers"></span> users made <span id="buildingsActivity"></span> contributions</span>
-        <h3 id="access-to-data" style="margin-top: 2em" class="anchor">Access to Data</h3>
+        <h3 id="access-to-data" class="anchor">Access to Data</h3>
       	<p><a class="button special" href="https://export.hotosm.org/en/v3/exports/{{ page.export }}" rel="">Download {{ page.title }} data</a></p>
 
     </div>
@@ -46,8 +46,6 @@
 </article>
 
 {% include footer.html %}
-
-{% include citymap.html %}
 
 </div>
 

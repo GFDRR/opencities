@@ -12,7 +12,41 @@ export: 07fe4f3c-b36f-44a2-bc77-0aab140f702d
 The city of Ngaoundéré is facing recurring challenges related to urban floods, which are increasing as its uncontrolled urbanization continues. Urbanization has been largely spontaneous, resulting from the increasing occupation of many flood or wetlands and mountain slopes without adequate land management. To improve the management of its territory, the Urban Community of Ngaoundéré (UCN), in collaboration with the Inclusive and Resilient Cities Development Project (IRCDP) financed by the World Bank via the Ministry of Housing and Urban Development (MINHUD), must update their open access spatial data to capture built space and critical infrastructure located in areas at risk of floods on the major beds of the main rivers. These areas are; the Bini Stream and its tributaries whose floods often affect parts of Malang, Dang and Bini neighborhoods; the Mabanga stream and its tributaries crossing Djalingo, Gadamabaga, Joli Soir, Baladji 1, Baladji 2, Bibakala, Madagascar, Gare voyageurs, Gare marchandises, Bidjoro, Manwi and Calme neighborhoods; the Soumsoum watercourse and its tributaries affecting Sabongari 3 and Sabongari Norvegien neighborhoods; and the Mardock Watercourse and its tributaries affecting a good part of the neighborhood of the same name, and the airport neighborhoods. Landslide risk often accompanies flooding, specifically on the slopes of the Ngaoundéré, Ngaouday, Ngaousay rivers which may affect neighborhoods such as Onaref, Socaret and Burkina.<br>
 The data generated through Open Cities Ngaoundéré will enable municipal and local authorities to better plan urban growth, land use, urban development and the various interventions in the city in the event of floods and landslides. The city dwellers of Ngaoundéré will then live in a protected and better environment. In the long term, Ngaoundéré will be able to serve as an example of success, for its neighboring localities, in urban planning and computer-aided management of natural resources.
 </p>
+<div id="map"></div>
 {% include mapping-progress.html %}
 <iframe src="https://osm-analytics.org/#/compare/gist:395d0ecb5f37e6414d7712596eb1b859/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 {% include data-quality.html %}
 <iframe src="https://osm-analytics.org/#/gaps/gist:395d0ecb5f37e6414d7712596eb1b859/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
+
+<script>
+
+  var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+  var oamAttr = 'OpenAerialMap';
+
+  var one 		= L.tileLayer('https://tiles.openaerialmap.org/5c645514eaa5bc0007eea42d/0/5c645514eaa5bc0007eea42e/{z}/{x}/{y}', {attribution: oamAttr}),
+      two 		= L.tileLayer('https://tiles.openaerialmap.org/5c657b9f1fa6f100070431f8/0/5c657b9f1fa6f100070431f9/{z}/{x}/{y}', {attribution: oamAttr});
+
+  var grayscale = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+      aerial    = L.layerGroup([one, two]);
+
+  var map = L.map('map', {
+    center: [7.32, 13.58],
+    zoom: 15,
+    layers: [grayscale, aerial]
+  });
+
+  var baseLayers = {
+    "Grayscale": grayscale
+  };
+
+  var overlays = {
+    "Aerial": aerial
+  };
+
+  L.control.layers(baseLayers, overlays).addTo(map);
+
+</script>

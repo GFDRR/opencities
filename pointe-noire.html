@@ -14,7 +14,41 @@ The OpenStreetMap data for Pointe-Noire is still relatively empty. Updated geore
 The Open Cities Pointe-Noire project complements the World Bank’s DURQuaP project and Integrating Urban Resilience TA through tool development and capacity building activities in the City of Pointe-Noire. The project will support intermediary outcomes to i) engage counterparts and raise greater awareness of GIS-based planning and governance and ii) increase urban resilience through risk management tools. Specifically, community mapping of exposure and vulnerability in OSM and associated mapping tools will contribute fundamental data layers for i) a basic early warning system for flooding using a GIS-based disaster risk management system and ii) municipal base maps.<br>
 The Open Cities Pointe-Noire project will target two flood-prone neighborhoods covered by the DURQuaP project: i) Quartier Mboukou (arroundissement de Tié Tié) and ii) Quartier Tchiniambi (arroundissement de Louandjili). Mapping activities will focus on collecting attributes related to buildings, drainage and roads to help counterparts with management and maintenance. The Municipality of Pointe-Noire will serve as the Open Cities Pointe-Noire project’s primary government counterpart.
 </p>
+<div id="map"></div>
 {% include mapping-progress.html %}
 <iframe src="https://osm-analytics.org/#/compare/gist:0ecaa9dbcaf40b29053a2d87d877fd83/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 {% include data-quality.html %}
 <iframe src="https://osm-analytics.org/#/gaps/gist:0ecaa9dbcaf40b29053a2d87d877fd83/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
+
+<script>
+
+  var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+  var oamAttr = 'OpenAerialMap';
+
+  var one 		= L.tileLayer('https://tiles.openaerialmap.org/5c30a233be6ca30005c74da8/0/5c30a233be6ca30005c74da9/{z}/{x}/{y}', {attribution: oamAttr}),
+      two 		= L.tileLayer('https://tiles.openaerialmap.org/5c30a233be6ca30005c74da8/1/5c30a233be6ca30005c74daa/{z}/{x}/{y}', {attribution: oamAttr});
+
+  var grayscale = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+      aerial    = L.layerGroup([one, two]);
+
+  var map = L.map('map', {
+    center: [-4.775, 11.885],
+    zoom: 15,
+    layers: [grayscale, aerial]
+  });
+
+  var baseLayers = {
+    "Grayscale": grayscale
+  };
+
+  var overlays = {
+    "Aerial": aerial
+  };
+
+  L.control.layers(baseLayers, overlays).addTo(map);
+
+</script>
