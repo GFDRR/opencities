@@ -1679,6 +1679,16 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 	}
 
+	#main-video {
+		padding: 4em 16em 2em;
+		@include breakpoint(large) {
+			padding: 4em 8em 2em;
+		}
+		@include breakpoint(medium) {
+			padding: 2em 4em 0;
+		}
+	}
+
 	#two {
 		.content {
 			a {
