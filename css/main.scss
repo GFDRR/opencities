@@ -1691,6 +1691,74 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 	}
 
+	.rssbox-item-title {
+		text-transform: uppercase;
+		font-size: 1.25em !important;
+		margin-bottom: 0.5em !important;
+		margin-top: 1em !important;
+	}
+
+	.rssbox-item-content {
+		line-height: 1.75em !important;
+		margin-bottom: 2em !important;
+	}
+
+	.video-thumb {
+		font-size: 16px;
+		height: 160px;
+		line-height: 1.25em;
+		margin-bottom: 10px;
+		position: relative;
+		a {
+			color: white;
+			border: 0;
+			position: absolute;
+		  bottom: 16px;
+		  left: 16px;
+			text-shadow: 2px 1px 4px rgba(0,0,0,0.6);
+			&:hover {
+				color: white;
+				border-bottom: 1px solid #fff;
+			}
+		}
+	}
+	.thumb-1 {
+		background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/video-thumbs/tool-design-for-urban-resiliance.jpg');
+		background-size: cover;
+		background-position: 50% 50%;
+		margin-left: -10px;
+		margin-right: 10px;
+	}
+	.thumb-2 {
+		background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/video-thumbs/open-cities-africa-kickoff-2018.jpg');
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+	.thumb-3 {
+		background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/video-thumbs/understanding-flood-vulnerability-in-niger.jpg');
+		background-size: cover;
+		background-position: 50% 50%;
+		margin-left: -10px;
+		margin-right: 10px;
+	}
+	.thumb-4 {
+		background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/video-thumbs/open-cities-ngaoundere.jpg');
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+	.thumb-5 {
+		background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/video-thumbs/open-cities-africa-st-louis.jpg');
+		background-size: cover;
+		background-position: 50% 50%;
+		margin-left: -10px;
+		margin-right: 10px;
+	}
+	.thumb-6 {
+		background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/video-thumbs/open-cities-in-brazzaville.jpg');
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+
 /* Feed Parser */
 
 	#feed {
