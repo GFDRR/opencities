@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-  <body>
+  <body class="city">
 
     <div id="page-wrapper">
 
@@ -11,33 +11,32 @@
 
 <article id="main">
 
-  <div id="map">
-    <header>
-      <h4>Open Cities</h4>
-      <h2>{{ page.title }}</h2>
-      <p>{{ page.description }}</p>
-    </header>
-  </div>
+  <section id="one" class="wrapper style1 special">
+    <div class="inner">
+      <header class="major">
+        <h1>{{ page.title }}</h1>
+      </header>
+    </div>
+  </section>
 
   <section class="wrapper style5">
     <div class="inner">
-      <h3>{{ page.title }}, {{ page.description }}</h3>
+      <h2>{{ page.title }}, {{ page.description }}</h2>
         {{ content }}
       <h3>OSM Community Dynamics</h3>
       <span>Understanding mapping progress and data quality also requires looking at the local OSM community and how mappers have contributed over time. Embedded widgets in this sections allow e.g. exploring the list of top mappers who contributed to features within the city extent, with links to their OSM user profile page. A time chart of number of user contributions over pre-defined time periods (daily, weekly, monthly), also provides a picture of how consistent the mapping activity in the area is.</span>
-      <h4 style="margin-top:2em">Date Range <span id="dates"></span></h4>
+      <h4>Date Range <span id="dates"></span></h4>
     		<div class="project-box">
           <dl>
+            <!-- <dt>Daily activity in the area</dt> -->
             <dd id="activity">
               <div style="background-color: #f0f0f0;height: 320px;margin: 1rem 0;width: 100%;background-image: url(/images/loading_2x_360.gif);background-repeat: no-repeat;background-position: center;background-size: 35px;"></div>
             </dd>
           </dl>
         </div>
+        <div id="overallStats"></div>
         <div id="contributors"></div>
         <span><span id="buildingsUsers"></span> users made <span id="buildingsActivity"></span> contributions</span>
-        <h3 id="access-to-data" style="margin-top: 2em" class="anchor">Access to Data</h3>
-      	<p><a class="button special" href="https://export.hotosm.org/en/v3/exports/{{ page.export }}" rel="">Download {{ page.title }} data</a></p>
-
     </div>
   </section>
 
@@ -46,8 +45,6 @@
 </article>
 
 {% include footer.html %}
-
-{% include citymap.html %}
 
 </div>
 
