@@ -26,18 +26,18 @@ One of the main goal is to significantly increase the coverage and the level of 
 			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 
-	var grayscale = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+	var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr}),
       aerial    = L.tileLayer('https://tiles.openaerialmap.org/5bbefc2efb28140006123424/0/5bbefc2efb28140006123425/{z}/{x}/{y}', {
                   'attribution': 'OpenAerialMap'
                 });
 	var map = L.map('map', {
     center: [0.2559382152503518, 32.63544023036957],
-		zoom: 16,
-    layers: [grayscale, aerial]
+		zoom: 12,
+    layers: [outdoors, aerial]
 	});
 
 	var baseLayers = {
-		"Grayscale": grayscale
+		"Outdoors": outdoors
 	};
 
 	var overlays = {

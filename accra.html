@@ -32,17 +32,17 @@ Open Cities Accra will create a detailed and accurate map of these areas, as wel
 				two 		= L.tileLayer('https://tiles.openaerialmap.org/5bb9323e9ed15b0006d24f33/0/5bb9323e9ed15b0006d24f34/{z}/{x}/{y}', {attribution: oamAttr}),
 				three		= L.tileLayer('https://tiles.openaerialmap.org/5be9bb18080ac000051474fd/0/5be9bb18080ac000051474fe/{z}/{x}/{y}', {attribution: oamAttr});
 
-		var grayscale = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+		var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr}),
 	      aerial    = L.layerGroup([one, two, three]);
 
 		var map = L.map('map', {
-	    center: [5.61, -0.22],
-			zoom: 14,
-	    layers: [grayscale, aerial]
+	    center: [5.58, -0.2],
+			zoom: 13,
+	    layers: [outdoors, aerial]
 		});
 
 		var baseLayers = {
-			"Grayscale": grayscale
+			"Outdoors": outdoors
 		};
 
 		var overlays = {

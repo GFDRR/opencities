@@ -30,17 +30,17 @@ The data generated through Open Cities Ngaoundéré will enable municipal and lo
   var one 		= L.tileLayer('https://tiles.openaerialmap.org/5c645514eaa5bc0007eea42d/0/5c645514eaa5bc0007eea42e/{z}/{x}/{y}', {attribution: oamAttr}),
       two 		= L.tileLayer('https://tiles.openaerialmap.org/5c657b9f1fa6f100070431f8/0/5c657b9f1fa6f100070431f9/{z}/{x}/{y}', {attribution: oamAttr});
 
-  var grayscale = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+  var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr}),
       aerial    = L.layerGroup([one, two]);
 
   var map = L.map('map', {
     center: [7.32, 13.58],
-    zoom: 15,
-    layers: [grayscale, aerial]
+    zoom: 13,
+    layers: [outdoors, aerial]
   });
 
   var baseLayers = {
-    "Grayscale": grayscale
+    "Outdoors": outdoors
   };
 
   var overlays = {

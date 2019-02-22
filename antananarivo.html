@@ -12,8 +12,34 @@ export: 57f6e97b-ef18-43cf-9191-b715df440185
 Antananarivo faces challenges with urban and riverine flooding, which are further complicated by ongoing issues of rapid urbanization; lack of land-use planning; informal housing; drainage and waste management; and degradation and loss of green space.<br>
 		The Open Cities Africa Antananarivo project will focus on low-income formal and informal areas are the center of the city. These areas are prone to significant flood risk and face extremely high levels of poverty. The World Bank is currently preparing a series of projects in this area, which includes activities on drainage, flood protection and urban upgrading. The proposed activities will support the implementation of this investment project, and the development of follow-up projects. The products that are needed in the short term include spatial open-access datasets on housing, infrastructure and green space, to inform engagement and investment on the ground. This open data will be used to explore changes over time to better understand the urbanization process. In the longer term it could be beneficial to develop a web platform (e.g. GeoNode) to share and use geospatial information.
 </p>
+  <div id="map"></div>
 	{% include mapping-progress.html %}
 	<iframe src="https://osm-analytics.org/#/compare/gist:56a7bbcf49bee7fe8c23dfa8be6d207d/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 
 	{% include data-quality.html %}
 	<iframe src="https://osm-analytics.org/#/gaps/gist:56a7bbcf49bee7fe8c23dfa8be6d207d/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
+
+	<script>
+
+		var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+				'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+		var oamAttr = 'OpenAerialMap';
+
+		var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr});
+
+		var map = L.map('map', {
+	    center: [-18.9, 47.53],
+			zoom: 13,
+	    layers: [outdoors]
+		});
+
+		var baseLayers = {
+			"Outdoors": outdoors
+		};
+
+		L.control.layers(baseLayers).addTo(map);
+
+	</script>
