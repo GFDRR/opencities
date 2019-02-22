@@ -12,7 +12,33 @@ export: 3bcd8b93-fee3-42d1-b81b-1b3b37200cc2
 <br>
 		The Open Cities Kinshasa project will focus on the Kisenso and Matete Townships. Community mapping of flood extents and buildings, roads, and drainage infrastructure in OSM and associated mapping tools will contribute fundamental data layers for i) flood and erosion risk assessment of the project area, with gender-disaggregated variables; ii) flood risk evaluation under different scenarios, including climate change, land use change, and increased population; and iii) the development of early warning systems. The Kinshasa Provincial Ministry of Plan, Public Works and Infrastructure will be the Open Cities Kinshasa project’s primary government counterpart. Faculties from the University of Kinshasa and other partners, as directed by the World Bank, will also work in close collaboration with the project. The project plans to address the challenge of planning, by creating, assembling and disseminating open spatial data on the built environment and infrastructure, thus addressing the lack of updated data for analysis of the impact of disasters on these infrastructures and the population.  The team will develop targeted products and tools to help key stakeholders use information that is useful for the prevention and management of potential risks and disasters.
 </p>
+  <div id="map"></div>
 	{% include mapping-progress.html %}
 	<iframe src="https://osm-analytics.org/#/compare/gist:2fedd5a07dce9d628b186bbbf5fcfbc9/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 	{% include data-quality.html %}
 	<iframe src="https://osm-analytics.org/#/gaps/gist:2fedd5a07dce9d628b186bbbf5fcfbc9/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
+
+	<script>
+
+		var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+				'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+		var oamAttr = 'OpenAerialMap';
+
+		var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr});
+
+		var map = L.map('map', {
+	    center: [-4.36, 15.29],
+			zoom: 13,
+	    layers: [outdoors]
+		});
+
+		var baseLayers = {
+			"Outdoors": outdoors
+		};
+
+		L.control.layers(baseLayers).addTo(map);
+
+	</script>
