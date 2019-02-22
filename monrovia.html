@@ -14,8 +14,34 @@ The city of Monrovia is a peninsular area of land bounded by the Atlantic Ocean 
 Open Cities Monrovia proposes a Participatory Mapping effort in Clara Town and Doe Community in Monrovia City, to collect geospatial data to plan for adaptive measures around seasonal flooding, poor sanitation, and drainage infrastructure. Improved datasets on flooding will help government and development partners to make more refined policies around causes of flooding, (both man-made or climate change induced) and to design programs that would minimize or eradicate future occurrences.<br>
 Government Stakeholders identified for this project include: the Monrovia City Corporation (MCC), Liberia Institute of Statistics and Geo-Information Services (LSGIS), National Disaster Management Agency (NDM), the Ministry of Public Works, the Liberia Water and Sewer Corporation, and Ministry of Gender, Child and Social Protection.
 </p>
+  <div id="map"></div>
   <div class="readmore"><a href="#" id="loadMore">Read more</a></div>
   {% include mapping-progress.html %}
   <iframe src="https://osm-analytics.org/#/compare/gist:d01f2ff5d792cbdf35505683c0c6f9b5/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
   {% include data-quality.html %}
   <iframe src="https://osm-analytics.org/#/gaps/gist:d01f2ff5d792cbdf35505683c0c6f9b5/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
+
+  <script>
+
+		var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+				'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+		var oamAttr = 'OpenAerialMap';
+
+		var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr});
+
+		var map = L.map('map', {
+	    center: [6.33, -10.7605],
+			zoom: 13,
+	    layers: [outdoors]
+		});
+
+		var baseLayers = {
+			"Outdoors": outdoors
+		};
+
+		L.control.layers(baseLayers).addTo(map);
+
+	</script>
