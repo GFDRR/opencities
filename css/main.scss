@@ -1707,6 +1707,10 @@ $baseurl: '{{ site.baseurl }}/images';
 		@include breakpoint(medium) {
 			padding: 2em 4em 0;
 		}
+		@include breakpoint(small) {
+			margin-bottom: -2rem;
+			padding: 0;
+		}
 	}
 
 	#two {
