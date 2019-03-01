@@ -13,6 +13,7 @@ The city of Ngaoundéré is facing recurring challenges related to urban floods,
 The data generated through Open Cities Ngaoundéré will enable municipal and local authorities to better plan urban growth, land use, urban development and the various interventions in the city in the event of floods and landslides. The city dwellers of Ngaoundéré will then live in a protected and better environment. In the long term, Ngaoundéré will be able to serve as an example of success, for its neighboring localities, in urban planning and computer-aided management of natural resources.
 </p>
 <div id="map"></div>
+<p><a class="button special" id="aerial" href="#" rel=""><span class="view">View</span><span class="hide">Hide</span> Aerial Imagery</a></p>
 {% include mapping-progress.html %}
 <iframe src="https://osm-analytics.org/#/compare/gist:f7170443229f498dc3a58c672e67b618/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 {% include data-quality.html %}
@@ -36,7 +37,7 @@ The data generated through Open Cities Ngaoundéré will enable municipal and lo
   var map = L.map('map', {
     center: [7.32, 13.58],
     zoom: 13,
-    layers: [outdoors, aerial]
+    layers: [outdoors]
   });
 
   var baseLayers = {

@@ -2222,6 +2222,25 @@ $baseurl: '{{ site.baseurl }}/images';
 		height: 100%;
 	}
 
+#map {
+	margin-bottom: 1rem;
+}
+
+#aerial {
+		.hide {
+			display: none;
+		}
+}
+
+#aerial.selected {
+		.view {
+			display: none;
+		}
+		.hide {
+			display: inline;
+		}
+}
+
 #overallStats {
 	.styles__title___XHc_7 {
 		font-size: 1.5em;

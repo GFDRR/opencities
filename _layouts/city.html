@@ -74,6 +74,19 @@ $(function () {
 });
 </script>
 
+<script>
+$("#aerial").click(function(event) {
+  event.preventDefault();
+  if(map.hasLayer(aerial)) {
+    $(this).removeClass('selected');
+    map.removeLayer(aerial);
+  } else {
+    map.addLayer(aerial);
+    $(this).addClass('selected');
+    }
+  });
+</script>
+
 </body>
 
 </html>
