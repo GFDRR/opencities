@@ -15,6 +15,7 @@ The Open Cities Pointe-Noire project complements the World Bank’s DURQuaP proj
 The Open Cities Pointe-Noire project will target two flood-prone neighborhoods covered by the DURQuaP project: i) Quartier Mboukou (arroundissement de Tié Tié) and ii) Quartier Tchiniambi (arroundissement de Louandjili). Mapping activities will focus on collecting attributes related to buildings, drainage and roads to help counterparts with management and maintenance. The Municipality of Pointe-Noire will serve as the Open Cities Pointe-Noire project’s primary government counterpart.
 </p>
 <div id="map"></div>
+<p><a class="button special" id="aerial" href="#" rel=""><span class="view">View</span><span class="hide">Hide</span> Aerial Imagery</a></p>
 {% include mapping-progress.html %}
 <iframe src="https://osm-analytics.org/#/compare/gist:0ecaa9dbcaf40b29053a2d87d877fd83/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 {% include data-quality.html %}
@@ -38,7 +39,7 @@ The Open Cities Pointe-Noire project will target two flood-prone neighborhoods c
   var map = L.map('map', {
     center: [-4.775, 11.885],
     zoom: 13,
-    layers: [outdoors, aerial]
+    layers: [outdoors]
   });
 
   var baseLayers = {
