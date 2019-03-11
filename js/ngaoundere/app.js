@@ -16,7 +16,7 @@ var period = [from, to].map(function (d) {
   return d.toISOString().substr(0, 10);
 }).join();
 var precision = 13;
-var apiUrl = "".concat(process.env.SANDBOX_ENDPOINT, "/stats/all/polygon/yrtqA_upl%40_%7B%40i%40og%40r~BbOrQ%7Bu%40r%60%40cg%40hi%40tf%40fm%40%7Cx%40%7DA_%60%40biCq%7CFnxFcqBv%7BDtkAvqE%60_DliEl%7DG%60Qsx%40c%7BD~%7B%40kdCsVo%60%40ew%40e%7BDh_EmvI%7BsAwwC?period=").concat(period);
+var apiUrl = "".concat(process.env.SANDBOX_ENDPOINT, "/stats/all/polygon/oopqAmxgk%40eEith%40_mWR%3Ftsh%40?period=").concat(period);
 
 function mountViz(data) {
   var datesUI = document.querySelector('#dates');

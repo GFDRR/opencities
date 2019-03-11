@@ -16,7 +16,7 @@ var period = [from, to].map(function (d) {
   return d.toISOString().substr(0, 10);
 }).join();
 var precision = 13;
-var apiUrl = "".concat(process.env.SANDBOX_ENDPOINT, "/stats/all/polygon/vln%40ukla%40y%7D%40h%60BkFrIaF~IaHc%40b%40eJLmDIkDaDwMK%7BCRgBd%40%7BATgBH_ESgAw%40y%40s%40iA%5DwBCgCXoB%40gBn%40eA%7CCoDbBaBpAs%40~%40kCPcBPyAVqAb%40w%40l%40kAb%40i%40Z%7DAFq%40Vi%40p%40kAjBiBn%40%7BE%60AaBNqFDq%40pBqBv%40gBl%40o%40r%40c%40rCcHxGqHdPta%40?period=").concat(period);
+var apiUrl = "".concat(process.env.SANDBOX_ENDPOINT, "/stats/all/polygon/vln%40ukla%40ceA%7CjBaF~IaHc%40b%40eJLmDIkDaDwMK%7BCRgBd%40%7BATgBH_ESgAw%40y%40s%40iA%5DwBCgCXoB%40gBn%40eA%7CCoDbBaBpAs%40~%40kCPcBPyAVqAb%40w%40l%40kAb%40i%40Z%7DAFq%40Vi%40p%40kAjBiBn%40%7BE%60AaBNqFDq%40pBqBv%40gBl%40o%40r%40c%40rCcHxGqHbLz%5E?period=").concat(period);
 
 function mountViz(data) {
   var datesUI = document.querySelector('#dates');
