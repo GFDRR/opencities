@@ -30,17 +30,17 @@ export: dfa5f3d2-b37c-4a51-9bb0-c00e788dd4db
 
 		var oamAttr = 'OpenAerialMap';
 
-		var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr});
+		var streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr});
 		aerial    = L.layerGroup([one]);
 
 		var map = L.map('map', {
 	    center: [-4.6, 55.46],
 			zoom: 10,
-	    layers: [outdoors]
+	    layers: [streets]
 		});
 
 		var baseLayers = {
-			"Outdoors": outdoors
+			"Outdoors": streets
 		};
 
 		var overlays = {
