@@ -13,7 +13,7 @@ export: dfa5f3d2-b37c-4a51-9bb0-c00e788dd4db
 		Details to be collected include occupancy of the building, material, number of floors, whether the building is elevated, location of assembly points, etc. This will help the stakeholders to better understand and visualize risk and lead to more informed decisions at the various phases of disaster risk management e.g. to improve preparedness and plan for evacuation.<br>
 		For the mapping and data collection activities the Project is engaging local communities (such as secondary school teachers and students) and building capacity within these communities. The Project will train community members on state-of-art geospatial technology that will enable them to collect/capture, analyze, visualize and share data for numerous purposes i.e. even beyond the scope of this project.</p>
 	<div id="map"></div>
-	<p><a class="button special" id="aerial" href="#" rel=""><span class="view">View</span><span class="hide">Hide</span> Aerial Imagery</a></p>
+	<p>{% include view-aerial.html %}{% include download-data.html %}</p>
 	{% include mapping-progress.html %}
 	<iframe src="https://osm-analytics.org/#/compare/gist:a151b29ef0576cc1b1ecb2db4ab8c8e8/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 	{% include data-quality.html %}
