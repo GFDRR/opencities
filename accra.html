@@ -8,11 +8,9 @@ center-x: -0.1870
 center-y: 5.6037
 export: c650a0eb-4870-49ac-9e14-492544e21c40
 ---
-	<style>p {display: none}</style>
-	<p>Greater Accra is subject to chronic flooding, the impacts of which are increasing due to climate change and population increase. About 60% of Accra’s population lives within the Odaw basin; where frequent and severe urban flooding is a major issue.  The World Bank is working to support resilient, clean, and inclusive development in the Greater Accra Region under its Greater Accra Resilience and Integrated Development (GARID) Project. <br>
-		Open Cities Accra will support the GARID project through the creation of map data to inform participatory solid waste management, and informal settlement upgrading, in these flood prone areas.  The Open Cities Accra Project will focus on the neighborhood of Alogboshie and its environs. The project will also involve the remote mapping of Nima, Akweteman and Alajo. Alogboshie is a community that is plagued by perennial flooding, with peaks during the rainy season during June and July. The effects of flooding on human life here is significant; with regular displacement and loss of property. The community is also prone to disease outbreaks.
-Open Cities Accra will create a detailed and accurate map of these areas, as well as build the capacity of stakeholders within government institutions. These stakeholders include the Accra Metropolitan Assembly, the Ghana Statistical Services, the Metropolitan and Municipal District Assemblies, the Ministry of Inner Cities Development and Zongos, and the National Disaster Management Organization. This project will help government stakeholders to make data-driven decisions to improve the lives of local populations. This will include informed planning decisions, and improved disaster response capabilities.</p>
-	<div class="readmore"><a href="#" id="loadMore">Read more</a></div>
+	<p>Greater Accra is subject to chronic flooding, the impacts of which are increasing due to climate change and population increase. About 60% of Accra’s population lives within the Odaw basin; where frequent and severe urban flooding is a major issue.  The World Bank is working to support resilient, clean, and inclusive development in the Greater Accra Region under its Greater Accra Resilience and Integrated Development (GARID) Project.</p>
+	<p>Open Cities Accra will support the GARID project through the creation of map data to inform participatory solid waste management, and informal settlement upgrading, in these flood prone areas.  The Open Cities Accra Project will focus on the neighborhood of Alogboshie and its environs. The project will also involve the remote mapping of Nima, Akweteman and Alajo. Alogboshie is a community that is plagued by perennial flooding, with peaks during the rainy season during June and July. The effects of flooding on human life here is significant; with regular displacement and loss of property. The community is also prone to disease outbreaks.</p>
+	<p>Open Cities Accra will create a detailed and accurate map of these areas, as well as build the capacity of stakeholders within government institutions. These stakeholders include the Accra Metropolitan Assembly, the Ghana Statistical Services, the Metropolitan and Municipal District Assemblies, the Ministry of Inner Cities Development and Zongos, and the National Disaster Management Organization. This project will help government stakeholders to make data-driven decisions to improve the lives of local populations. This will include informed planning decisions, and improved disaster response capabilities.</p>
 	<div id="map"></div>
 	<p><a class="button special" id="aerial" href="#" rel=""><span class="view">View</span><span class="hide">Hide</span> Aerial Imagery</a></p>
 	{% include mapping-progress.html %}
@@ -33,17 +31,17 @@ Open Cities Accra will create a detailed and accurate map of these areas, as wel
 				two 		= L.tileLayer('https://tiles.openaerialmap.org/5bb9323e9ed15b0006d24f33/0/5bb9323e9ed15b0006d24f34/{z}/{x}/{y}', {attribution: oamAttr}),
 				three		= L.tileLayer('https://tiles.openaerialmap.org/5be9bb18080ac000051474fd/0/5be9bb18080ac000051474fe/{z}/{x}/{y}', {attribution: oamAttr});
 
-		var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr}),
+		var streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr}),
 	      aerial    = L.layerGroup([one, two, three]);
 
 		var map = L.map('map', {
-	    center: [5.58, -0.2],
-			zoom: 13,
-	    layers: [outdoors]
+	    center: [5.61, -0.225],
+			zoom: 14,
+	    layers: [streets]
 		});
 
 		var baseLayers = {
-			"Outdoors": outdoors
+			"Outdoors": streets
 		};
 
 		var overlays = {

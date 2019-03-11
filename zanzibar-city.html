@@ -27,16 +27,16 @@ export: 7d24c924-1b58-4053-9037-4067355b0093
 
 		var oamAttr = 'OpenAerialMap';
 
-		var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr});
+		var streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr});
 
 		var map = L.map('map', {
 	    center: [-6.1622, 39.2],
 			zoom: 13,
-	    layers: [outdoors]
+	    layers: [streets]
 		});
 
 		var baseLayers = {
-			"Outdoors": outdoors
+			"Outdoors": streets
 		};
 
 		L.control.layers(baseLayers).addTo(map);

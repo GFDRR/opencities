@@ -33,17 +33,17 @@ The Open Cities Pointe-Noire project will target two flood-prone neighborhoods c
   var one 		= L.tileLayer('https://tiles.openaerialmap.org/5c30a233be6ca30005c74da8/0/5c30a233be6ca30005c74da9/{z}/{x}/{y}', {attribution: oamAttr}),
       two 		= L.tileLayer('https://tiles.openaerialmap.org/5c30a233be6ca30005c74da8/1/5c30a233be6ca30005c74daa/{z}/{x}/{y}', {attribution: oamAttr});
 
-  var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr}),
+  var streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr}),
       aerial    = L.layerGroup([one, two]);
 
   var map = L.map('map', {
     center: [-4.775, 11.885],
-    zoom: 13,
-    layers: [outdoors]
+    zoom: 15,
+    layers: [streets]
   });
 
   var baseLayers = {
-    "Outdoors": outdoors
+    "Outdoors": streets
   };
 
   var overlays = {

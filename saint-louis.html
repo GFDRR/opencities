@@ -38,17 +38,17 @@ The Open Cities Saint-Louis project complements ongoing World Bank project activ
 			eight		= L.tileLayer('http://a.tiles.mapbox.com/v4/astrodigital.LC82050492015072LGN00_bands_432/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXN0cm9kaWdpdGFsIiwiYSI6ImNVb1B0ZkEifQ.IrJoULY2VMSBNFqHLrFYew', {attribution: oamAttr}),
 			nine 		= L.tileLayer('http://a.tiles.mapbox.com/v4/astrodigital.LC82050492014293LGN00_bands_432/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXN0cm9kaWdpdGFsIiwiYSI6ImNVb1B0ZkEifQ.IrJoULY2VMSBNFqHLrFYew', {attribution: oamAttr});
 
-	var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr}),
+	var streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr}),
       aerial    = L.layerGroup([one, two, three, four, five, six, seven, eight, nine]);
 
 	var map = L.map('map', {
     center: [16.0326, -16.4818],
 		zoom: 13,
-    layers: [outdoors]
+    layers: [streets]
 	});
 
 	var baseLayers = {
-		"Outdoors": outdoors
+		"Outdoors": streets
 	};
 
 	var overlays = {

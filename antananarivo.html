@@ -28,16 +28,16 @@ Antananarivo faces challenges with urban and riverine flooding, which are furthe
 
 		var oamAttr = 'OpenAerialMap';
 
-		var outdoors = L.tileLayer(mbUrl, {id: 'mapbox.outdoors', attribution: mbAttr});
+		var streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr});
 
 		var map = L.map('map', {
 	    center: [-18.9, 47.53],
 			zoom: 13,
-	    layers: [outdoors]
+	    layers: [streets]
 		});
 
 		var baseLayers = {
-			"Outdoors": outdoors
+			"Outdoors": streets
 		};
 
 		L.control.layers(baseLayers).addTo(map);
