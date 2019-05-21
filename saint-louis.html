@@ -1,5 +1,5 @@
 ---
-layout: city
+layout: city-gl
 title: Saint-Louis
 description: Senegal
 permalink: /saint-louis/
@@ -13,7 +13,7 @@ Saint-Louis city is located in the coastal zone at the mouth of the Senegal Rive
 The Open Cities Saint-Louis project complements ongoing World Bank project activities in the city, such as: the Climate Change Adaptation Project (PROGEP), the Saint-Louis Emergency Recovery Project (SERP) and the West African Coastal Areas (WACA) project. It is also directly supported by City Coastal Resilience in Africa (CityCORE Africa), a World Bank technical assistance project enabling coastal resilience policies and investments in selected coastal cities of sub-Saharan Africa.  Exposure data for Saint-Louis are outdated and incomplete, therefore the Open Cities Saint-Louis project will collect attributes related to buildings, drainage and roads in all neighborhoods of the city. The City Planning and Development Office (ADC) and Senegal’s urban departments (DUA and DRUH) will serve as the Open Cities project’s primary government counterpart for the city. Improving these databases will be a critical element to support effective data-driven urban planning and increase urban resilience.
 </p>
 <div id="map"></div>
-<p>{% include view-aerial.html %}{% include download-data.html %}</p>
+<p><span id="aerial"></span> {% include download-data.html %}</p>
 {% include mapping-progress.html %}
 <iframe src="https://osm-analytics.org/#/compare/gist:5cdf7d995ff73e4726e269b9779f2735/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 {% include data-quality.html %}
@@ -21,40 +21,187 @@ The Open Cities Saint-Louis project complements ongoing World Bank project activ
 
 <script>
 
-	var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    zoom: 13,
+    center: [-16.4818, 16.0326]
+});
 
-	var oamAttr = 'OpenAerialMap';
+map.on('load', function() {
 
-	var one 		= L.tileLayer('https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/2/5be59ffba19fae00058bb96b/{z}/{x}/{y}', {attribution: oamAttr}),
-			two 		= L.tileLayer('https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/3/5be59ffba19fae00058bb96c/{z}/{x}/{y}', {attribution: oamAttr}),
-			three		= L.tileLayer('https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/6/5be59ffba19fae00058bb96f/{z}/{x}/{y}', {attribution: oamAttr}),
-			four		= L.tileLayer('https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/7/5be59ffba19fae00058bb970/{z}/{x}/{y}', {attribution: oamAttr}),
-			five		= L.tileLayer('https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/1/5be59ffba19fae00058bb96a/{z}/{x}/{y}', {attribution: oamAttr}),
-			six			= L.tileLayer('https://tiles.openaerialmap.org/5be422e2a19fae00058bb95d/0/5be422e2a19fae00058bb95e/{z}/{x}/{y}', {attribution: oamAttr}),
-			seven 	= L.tileLayer('https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/5/5be59ffba19fae00058bb96e/{z}/{x}/{y}', {attribution: oamAttr}),
-			eight		= L.tileLayer('http://a.tiles.mapbox.com/v4/astrodigital.LC82050492015072LGN00_bands_432/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXN0cm9kaWdpdGFsIiwiYSI6ImNVb1B0ZkEifQ.IrJoULY2VMSBNFqHLrFYew', {attribution: oamAttr}),
-			nine 		= L.tileLayer('http://a.tiles.mapbox.com/v4/astrodigital.LC82050492014293LGN00_bands_432/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXN0cm9kaWdpdGFsIiwiYSI6ImNVb1B0ZkEifQ.IrJoULY2VMSBNFqHLrFYew', {attribution: oamAttr});
+    map.addLayer({
+        'id': 'one',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/2/5be59ffba19fae00058bb96b/{z}/{x}/{y}',
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+    map.addLayer({
+        'id': 'two',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/3/5be59ffba19fae00058bb96c/{z}/{x}/{y}'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+		map.addLayer({
+        'id': 'three',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/6/5be59ffba19fae00058bb96f/{z}/{x}/{y}'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+		map.addLayer({
+        'id': 'four',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/7/5be59ffba19fae00058bb970/{z}/{x}/{y}'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+		map.addLayer({
+        'id': 'five',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/1/5be59ffba19fae00058bb96a/{z}/{x}/{y}'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+		map.addLayer({
+        'id': 'six',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5be422e2a19fae00058bb95d/0/5be422e2a19fae00058bb95e/{z}/{x}/{y}'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+		map.addLayer({
+        'id': 'seven',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5be59ffba19fae00058bb968/5/5be59ffba19fae00058bb96e/{z}/{x}/{y}'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+		map.addLayer({
+        'id': 'eight',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'http://a.tiles.mapbox.com/v4/astrodigital.LC82050492015072LGN00_bands_432/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXN0cm9kaWdpdGFsIiwiYSI6ImNVb1B0ZkEifQ.IrJoULY2VMSBNFqHLrFYew'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+		map.addLayer({
+        'id': 'nine',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'http://a.tiles.mapbox.com/v4/astrodigital.LC82050492014293LGN00_bands_432/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXN0cm9kaWdpdGFsIiwiYSI6ImNVb1B0ZkEifQ.IrJoULY2VMSBNFqHLrFYew'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+});
 
-	var streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr}),
-      aerial    = L.layerGroup([one, two, three, four, five, six, seven, eight, nine]);
+map.addControl(new mapboxgl.NavigationControl(),'top-left');
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
+map.scrollZoom.disable();
 
-	var map = L.map('map', {
-    center: [16.0326, -16.4818],
-		zoom: 13,
-    layers: [streets]
-	});
 
-	var baseLayers = {
-		"Streets": streets
-	};
+toggleLayer(['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'], 'aerial');
 
-	var overlays = {
-		"Aerial": aerial
-	};
+function toggleLayer(ids, name) {
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'button special';
+    link.textContent = 'View Aerial Imagery';
 
-	L.control.layers(baseLayers, overlays).addTo(map);
+    link.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        for (layers in ids){
+            var visibility = map.getLayoutProperty(ids[layers], 'visibility');
+            if (visibility === 'visible') {
+                map.setLayoutProperty(ids[layers], 'visibility', 'none');
+                this.className = 'button special';
+                this.textContent = 'Hide Aerial Imagery';
+            } else {
+                this.className = 'button special';
+                map.setLayoutProperty(ids[layers], 'visibility', 'visible');
+                this.textContent = 'View Aerial Imagery';
+            }
+         }
+
+    };
+
+    var layers = document.getElementById('aerial');
+    layers.appendChild(link);
+}
 
 </script>

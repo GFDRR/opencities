@@ -1,5 +1,5 @@
 ---
-layout: city
+layout: city-gl
 title: Ngaoundéré
 description: Cameroon
 permalink: /ngaoundere/
@@ -13,41 +13,89 @@ The city of Ngaoundéré is facing recurring challenges related to urban floods,
 The data generated through Open Cities Ngaoundéré will enable municipal and local authorities to better plan urban growth, land use, urban development and the various interventions in the city in the event of floods and landslides. The city dwellers of Ngaoundéré will then live in a protected and better environment. In the long term, Ngaoundéré will be able to serve as an example of success, for its neighboring localities, in urban planning and computer-aided management of natural resources.
 </p>
 <div id="map"></div>
-<p>{% include view-aerial.html %}{% include download-data.html %}</p>
+<p><span id="aerial"></span> {% include download-data.html %}</p>
 {% include mapping-progress.html %}
 <iframe src="https://osm-analytics.org/#/compare/gist:f7170443229f498dc3a58c672e67b618/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 {% include data-quality.html %}
 <iframe src="https://osm-analytics.org/#/gaps/gist:f7170443229f498dc3a58c672e67b618/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 
 <script>
-
-  var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
-
-  var oamAttr = 'OpenAerialMap';
-
-  var one 		= L.tileLayer('https://tiles.openaerialmap.org/5c645514eaa5bc0007eea42d/0/5c645514eaa5bc0007eea42e/{z}/{x}/{y}', {attribution: oamAttr}),
-      two 		= L.tileLayer('https://tiles.openaerialmap.org/5c657b9f1fa6f100070431f8/0/5c657b9f1fa6f100070431f9/{z}/{x}/{y}', {attribution: oamAttr});
-
-  var streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr}),
-      aerial    = L.layerGroup([one, two]);
-
-  var map = L.map('map', {
-    center: [7.32, 13.58],
+mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
     zoom: 14,
-    layers: [streets]
-  });
+    center: [13.58, 7.32]
+});
 
-  var baseLayers = {
-    "Streets": streets
-  };
+map.on('load', function() {
 
-  var overlays = {
-    "Aerial": aerial
-  };
+    map.addLayer({
+        'id': 'one',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5c645514eaa5bc0007eea42d/0/5c645514eaa5bc0007eea42e/{z}/{x}/{y}',
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+    map.addLayer({
+        'id': 'two',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5c657b9f1fa6f100070431f8/0/5c657b9f1fa6f100070431f9/{z}/{x}/{y}'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+});
 
-  L.control.layers(baseLayers, overlays).addTo(map);
+map.addControl(new mapboxgl.NavigationControl(),'top-left');
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
+map.scrollZoom.disable();
+
+
+toggleLayer(['one', 'two'], 'aerial');
+
+function toggleLayer(ids, name) {
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'button special';
+    link.textContent = 'View Aerial Imagery';
+
+    link.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        for (layers in ids){
+            var visibility = map.getLayoutProperty(ids[layers], 'visibility');
+            if (visibility === 'visible') {
+                map.setLayoutProperty(ids[layers], 'visibility', 'none');
+                this.className = 'button special';
+                this.textContent = 'Hide Aerial Imagery';
+            } else {
+                this.className = 'button special';
+                map.setLayoutProperty(ids[layers], 'visibility', 'visible');
+                this.textContent = 'View Aerial Imagery';
+            }
+         }
+
+    };
+
+    var layers = document.getElementById('aerial');
+    layers.appendChild(link);
+}
 
 </script>
