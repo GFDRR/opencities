@@ -2269,3 +2269,10 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 	}
 }
+
+#map {
+	button {
+		box-shadow: none;
+		color: inherit;
+	}
+}
