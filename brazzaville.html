@@ -1,5 +1,5 @@
 ---
-layout: city
+layout: city-gl
 title: Brazzaville
 description: Republic of the Congo
 permalink: /brazzaville/
@@ -19,25 +19,17 @@ The objective of this project is to integrate urban resilience in the design and
 
 	<script>
 
-		var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-				'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
-
-		var oamAttr = 'OpenAerialMap';
-
-		var streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr});
-
-		var map = L.map('map', {
-	    center: [-4.2634, 15.2429],
-			zoom: 13,
-	    layers: [streets]
+		mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+		var map = new mapboxgl.Map({
+		    container: 'map',
+		    style: 'mapbox://styles/mapbox/streets-v11',
+		    zoom: 13,
+		    center: [15.2429, -4.2634]
 		});
 
-		var baseLayers = {
-			"Streets": streets
-		};
-
-		L.control.layers(baseLayers).addTo(map);
+		map.addControl(new mapboxgl.NavigationControl(),'top-left');
+		map.dragRotate.disable();
+		map.touchZoomRotate.disableRotation();
+		map.scrollZoom.disable();
 
 	</script>
