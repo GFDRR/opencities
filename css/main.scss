@@ -2276,3 +2276,11 @@ $baseurl: '{{ site.baseurl }}/images';
 		color: inherit;
 	}
 }
+
+/* Uganda */
+.download a {
+	border: 0;
+}
+.download a:hover {
+	color: white;
+}
