@@ -1,0 +1,33 @@
+---
+layout: city-gl
+title: Niamey
+description: Niger
+permalink: /niamey/
+zoom: 11
+center-x: 2,1035
+center-y: 13,5042
+export: 
+---
+<p>
+	For thousands of years, the Niger River has been the lifeblood for not only Niger, but also its neighboring countries in the Niger River Basin. Yet, even as many Nigeriens depend on the mighty waterway for food, water, and livelihoods, the Niger River also poses a severe flood risk to the West African country during the rainy season. In the third quarter of 2017, widespread flooding due to heavy rains claimed the lives of over 50 people and displaced nearly 200,000. Lying on the banks of the Niger River, the Nigerien capital Niamey is especially vulnerable to flood risk. Poorly planned development in the city, which has contributed to land degradation and soil erosion, has only exacerbated the risk. To make matters even worse, many parts of Niamey, which has seen its population balloon to over one million people, lack proper drainage infrastructure. Against this backdrop, the government of Niger, in partnership with the World Bank and the Global Facility for Disaster Reduction and Recovery (GFDRR), has been stepping up its efforts to systematically gather data and information on Niamey’s exposure and vulnerability to flood risk. The hope here is that this will pave the way for the government of Niger to better plan and prioritize investments in the capital’s flood preparedness.
+</p>
+
+<div id="map"></div>
+
+
+<script>
+
+	mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+	var map = new mapboxgl.Map({
+	    container: 'map',
+	    style: 'mapbox://styles/mapbox/streets-v11',
+	    zoom: 11,
+	    center: [ 2.1098230, 13.5248340 ]
+	});
+
+	map.addControl(new mapboxgl.NavigationControl(),'top-left');
+	map.dragRotate.disable();
+	map.touchZoomRotate.disableRotation();
+	map.scrollZoom.disable();
+
+</script>

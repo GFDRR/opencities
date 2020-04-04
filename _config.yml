@@ -31,12 +31,16 @@ navigationLinks:
  - {permalink: "/resources/", text: "Resources"}
 
 cityLinks:
+  - {permalink: "/abidjan/", text: "Abidjan"}
   - {permalink: "/accra/", text: "Accra"}
   - {permalink: "/antananarivo/", text: "Antananarivo"}
+  - {permalink: "/bamako/", text: "Bamako"}
   - {permalink: "/brazzaville/", text: "Brazzaville"}
+  - {permalink: "/dar-es-salaam/", text: "Dar es Salaam"}
   - {permalink: "/uganda/kampala/", text: "Kampala"}
   - {permalink: "/kinshasa/", text: "Kinshasa"}
   - {permalink: "/monrovia/", text: "Monrovia"}
+  - {permalink: "/niamey/", text: "Niamey"}
   - {permalink: "/ngaoundere/", text: "Ngaoundéré"}
   - {permalink: "/pointe-noire/", text: "Pointe-Noire"}
   - {permalink: "/saint-louis/", text: "Saint-Louis"}

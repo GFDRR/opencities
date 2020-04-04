@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-  {% include cityhead-gl.html %}
-
-  <body class="city">
-
-    <div id="page-wrapper">
-
-      {% include header.html %}
-
-<article id="main">
-
-  <section id="one" class="wrapper style1 special">
-    <div class="inner">
-      <header class="major">
-        <h1>{{ page.title }}</h1>
-      </header>
-    </div>
-  </section>
-
-  <section class="wrapper style5">
-    <div class="inner">
-      <h3>{{ page.title }}, {{ page.description }}</h3>
-        {{ content }}
-      <!-- <h3>OSM Community Dynamics</h3>
+ <!-- OSM Community Dynamics -->
+      <h3>OSM Community Dynamics</h3>
       <span>Understanding mapping progress and data quality also requires looking at the local OSM community and how mappers have contributed over time. Embedded widgets in this sections allow e.g. exploring the list of top mappers who contributed to features within the city extent, with links to their OSM user profile page. A time chart of number of user contributions over pre-defined time periods (daily, weekly, monthly), also provides a picture of how consistent the mapping activity in the area is.</span>
       <h4 style="margin-top:2em">Date Range <span id="dates"></span></h4>
     		<div class="project-box">
@@ -34,23 +10,4 @@
           </dl>
         </div>
         <div id="contributors"></div>
-        <span><span id="buildingsUsers"></span> users made <span id="buildingsActivity"></span> contributions</span> -->
-    </div>
-  </section>
-
-  <div></div>
-
-</article>
-
-{% include footer.html %}
-
-</div>
-
-<script type="text/javascript" src="/js{{ page.permalink }}bundle.js"></script>
-<script src="/js/env.js" charset="utf-8"></script>
-<script src="/js{{ page.permalink }}app.js" charset="utf-8"></script>
-{% include scripts.html %}
-
-</body>
-
-</html>
+        <span><span id="buildingsUsers"></span> users made <span id="buildingsActivity"></span> contributions</span>
