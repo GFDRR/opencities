@@ -17,13 +17,26 @@
                   "type": "Feature",
                   "geometry": {
                       "type": "Point",
+                      "coordinates": [-4.0161070,  5.3203570]
+                  },
+                  "properties": {
+                      "title": "Abidjan",
+                      "description": "Abidjan, Côte d’Ivoire",
+                      "url": "abidjan",
+                      "modelId": 2,
+                  }
+              }, 
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
                       "coordinates": [-0.1870, 5.6037]
                   },
                   "properties": {
                       "title": "Accra",
                       "description": "Accra, Ghana",
                       "url": "accra",
-                      "modelId": 2,
+                      "modelId": 5,
                   }
               }, {
                   "type": "Feature",
@@ -41,6 +54,18 @@
                   "type": "Feature",
                   "geometry": {
                       "type": "Point",
+                      "coordinates": [-8.002889, 12.6493190]
+                  },
+                  "properties": {
+                    "title": "Bamako",
+                    "description": "Bamako, Mali",
+                    "url": "bamako",
+                    "modelId": 4,
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
                       "coordinates": [15.2429, -4.2634]
                   },
                   "properties": {
@@ -50,6 +75,19 @@
                     "modelId": 4,
                   }
               }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [39.2830, -6.8194]
+                  },
+                  "properties": {
+                    "title": "Dar es Salaam",
+                    "description": "Dar es Salaam, Tanzania",
+                    "url": "dar-es-salaam",
+                    "modelId": 5,
+                  }
+              }, 
+               {
                   "type": "Feature",
                   "geometry": {
                       "type": "Point",
@@ -83,9 +121,22 @@
                     "title": "Monrovia",
                     "description": "Monrovia, Liberia",
                     "url": "monrovia",
-                    "modelId": 2,
+                    "modelId": 3,
                   }
               }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [2.1098230, 13.5248340]
+                  },
+                  "properties": {
+                    "title": "Niamey",
+                    "description": "Niamey, Niger",
+                    "url": "niamey",
+                    "modelId": 2,
+                  }
+              }, 
+               {
                   "type": "Feature",
                   "geometry": {
                       "type": "Point",
@@ -248,7 +299,7 @@
         new mapboxgl.Popup()
             .setLngLat(coordinates)
             //.setHTML(description)
-            .setHTML('<p><a href="https://opencitiesproject.org/'+ url +'/">' + description + '</a></p>')
+            .setHTML('<p><a href="/'+ url +'/">' + description + '</a></p>')
             .addTo(map);
     });
 

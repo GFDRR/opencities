@@ -1,0 +1,31 @@
+---
+layout: city-gl
+title: Abidjan
+description: Côte d’Ivoire 
+permalink: /abidjan/
+zoom: 11
+center-x: -4,0161070
+center-y: 5,3203570
+export: 
+---
+<p>
+Côte d’Ivoire’s forested interior is vulnerable to the impacts of drought while in the sandy coastal region the country faces frequent flooding, heavy surf, and erosion and landslide. Most of Côte d’Ivoire’s population of 24 million resides in this tropical southern region, also home to two of its largest cities, Abidjan and San Pedro. The country is expected to see an increase in urban population and coastal settlement in the next decades which will increase exposure to coastal risks. It is projected that the coastal Ivorian population living less than 20 meters above sea level will more than double by 2050. Côte d’Ivoire is recovering from two recent civil wars in 2002-2004 and 2010-2011, each of which induced regional migration and internal displacement for over a million residents. Today many have returned, but there are still rural families being pushed out and into urban areas due to continued armed conflict.
+</p>
+<div id="map"></div>
+
+<script>
+
+	mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+	var map = new mapboxgl.Map({
+	    container: 'map',
+	    style: 'mapbox://styles/mapbox/streets-v11',
+	    zoom: 12, 
+	    center: [-4.0161070,  5.3203570 ]
+	});
+
+	map.addControl(new mapboxgl.NavigationControl(),'top-left');
+	map.dragRotate.disable();
+	map.touchZoomRotate.disableRotation();
+	map.scrollZoom.disable();
+
+</script>

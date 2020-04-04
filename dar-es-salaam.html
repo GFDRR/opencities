@@ -1,0 +1,31 @@
+---
+layout: city-gl
+title: Dar es Salaam
+description: Tanzania
+permalink: /dar-es-salaam/
+zoom: 11
+center-x: 39.2830
+center-y: -6.8194
+export: 
+---
+<p>
+Tanzania, East Africa’s most populous country, has roughly 1,424 kilometers of coastline along the Indian Ocean and is bordered by three of Africa’s Great Lakes to the north and west. Situated directly below the equator, Tanzania has a mostly tropical climate and experiences erratic annual rainfall patterns influenced by the El Niño - Southern Oscillation phenomenon, making it prone to flood and drought events . Tanzania’s cities, most notably the coastal city of Dar es Salaam, have been urbanizing rapidly a result of both internal rural-to-urban migration and the country’s generous acceptance of refugees from neighboring countries in the Great Lakes region over the past fifty years. As of 2018, Dar es Salaam is home to over 6 million residents and it is projected that the city will become a mega-city by 2030 .
+</p>
+<div id="map"></div>
+
+<script>
+
+	mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+	var map = new mapboxgl.Map({
+	    container: 'map',
+	    style: 'mapbox://styles/mapbox/streets-v11',
+	    zoom: 11,
+	    center: [ 39.2830, -6.8194 ]
+	});
+
+	map.addControl(new mapboxgl.NavigationControl(),'top-left');
+	map.dragRotate.disable();
+	map.touchZoomRotate.disableRotation();
+	map.scrollZoom.disable();
+
+</script>
