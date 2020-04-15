@@ -1,0 +1,31 @@
+---
+layout: city-gl
+title: Yaounde
+description: Cameroon
+permalink: /yaounde/
+zoom: 15
+center-x: 11.51943093
+center-y: 3.86758933
+export: 
+---
+	<p>The Development of Inclusive and Resilient Cities Project (PDVIR), is the result of cooperation between the World Bank and the Government of Cameroon to improve urban management, access to infrastructure (especially in poor neighborhoods) and resilience to natural hazards in several cities in Cameroon. The project has three interdependent components, and the activities are mutually supportive in order to optimize results: Component 1 provides institutional support to the authorities through the establishment of a methodological guide for integrating climate change adaptation and disaster risk management into development planning; Component 2 consists of strengthening the capacity of academics and professionals to support planning for resilient development; and Component 3 deals with resilient urban development. In Yaoundé, more specifically its Municipalities 5 and 7, the World Bank has entrusted a technical assistance mission to the SOGEFI - IRD consortium. More concretely, the group's mission will be to : i) design and facilitate the implementation of a risk understanding curriculum comprising several block courses in close collaboration with local universities; ii) in collaboration with the OpenStreetMap Cameroon association, ensure the collection of existing and new data on disaster risks, including exposure data; iii) produce flood risk maps based on the results of flood modelling; and iv) provide technical assistance to integrate risk information into urban land use plans and urban development projects in Yaoundé.</p>
+
+	<div id="map"></div>
+
+	{% include mapping-progress.html %}
+	<iframe src="https://osm-analytics.org/#/compare/gist:d65165d75a0ad9dcb58b7e11374bf7bd/2019...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
+
+    {% include data-quality.html %}
+    <iframe src="https://osm-analytics.org/#/gaps/gist:d65165d75a0ad9dcb58b7e11374bf7bd/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
+    
+<script>
+
+	mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+	var map = new mapboxgl.Map({
+	    container: 'map',
+	    style: 'mapbox://styles/mapbox/streets-v11',
+	    zoom: 10,
+	    center: [11.51943093, 3.86758933]
+	});
+
+</script>
