@@ -95,7 +95,6 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	p {
 		margin: 0 0 _size(element-margin) 0;
-		text-align: justify;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -2285,3 +2284,9 @@ $baseurl: '{{ site.baseurl }}/images';
 .download a:hover {
 	color: white;
 }
+
+
+/* City Intro headers */
+	#intro {
+		text-align: justify;
+	}
