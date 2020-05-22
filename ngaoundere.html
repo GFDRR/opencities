@@ -7,124 +7,99 @@ zoom: 12
 center-x: 13.58
 center-y: 7.32
 export: 49252300-3424-4e29-80a9-22a9c7ab5825
-report: Open_Cities_Ngaoundere_Final_Report.pdf
 ---
 <div id='intro'>
-    <p>
-        The city of Ngaoundéré is facing recurring challenges related to urban floods, which are increasing as its
-        uncontrolled urbanization continues. Urbanization has been largely spontaneous, resulting from the increasing
-        occupation of many flood or wetlands and mountain slopes without adequate land management. To improve the
-        management of its territory, the Urban Community of Ngaoundéré (UCN), in collaboration with the Inclusive and
-        Resilient Cities Development Project (IRCDP) financed by the World Bank via the Ministry of Housing and Urban
-        Development (MINHUD), must update their open access spatial data to capture built space and critical
-        infrastructure located in areas at risk of floods on the major beds of the main rivers. These areas are; the
-        Bini Stream and its tributaries whose floods often affect parts of Malang, Dang and Bini neighborhoods; the
-        Mabanga stream and its tributaries crossing Djalingo, Gadamabaga, Joli Soir, Baladji 1, Baladji 2, Bibakala,
-        Madagascar, Gare voyageurs, Gare marchandises, Bidjoro, Manwi and Calme neighborhoods; the Soumsoum watercourse
-        and its tributaries affecting Sabongari 3 and Sabongari Norvegien neighborhoods; and the Mardock Watercourse and
-        its tributaries affecting a good part of the neighborhood of the same name, and the airport neighborhoods.
-        Landslide risk often accompanies flooding, specifically on the slopes of the Ngaoundéré, Ngaouday, Ngaousay
-        rivers which may affect neighborhoods such as Onaref, Socaret and Burkina.<br>
-        The data generated through Open Cities Ngaoundéré will enable municipal and local authorities to better plan
-        urban growth, land use, urban development and the various interventions in the city in the event of floods and
-        landslides. The city dwellers of Ngaoundéré will then live in a protected and better environment. In the long
-        term, Ngaoundéré will be able to serve as an example of success, for its neighboring localities, in urban
-        planning and computer-aided management of natural resources.
-    </p>
+<p>
+The city of Ngaoundéré is facing recurring challenges related to urban floods, which are increasing as its uncontrolled urbanization continues. Urbanization has been largely spontaneous, resulting from the increasing occupation of many flood or wetlands and mountain slopes without adequate land management. To improve the management of its territory, the Urban Community of Ngaoundéré (UCN), in collaboration with the Inclusive and Resilient Cities Development Project (IRCDP) financed by the World Bank via the Ministry of Housing and Urban Development (MINHUD), must update their open access spatial data to capture built space and critical infrastructure located in areas at risk of floods on the major beds of the main rivers. These areas are; the Bini Stream and its tributaries whose floods often affect parts of Malang, Dang and Bini neighborhoods; the Mabanga stream and its tributaries crossing Djalingo, Gadamabaga, Joli Soir, Baladji 1, Baladji 2, Bibakala, Madagascar, Gare voyageurs, Gare marchandises, Bidjoro, Manwi and Calme neighborhoods; the Soumsoum watercourse and its tributaries affecting Sabongari 3 and Sabongari Norvegien neighborhoods; and the Mardock Watercourse and its tributaries affecting a good part of the neighborhood of the same name, and the airport neighborhoods. Landslide risk often accompanies flooding, specifically on the slopes of the Ngaoundéré, Ngaouday, Ngaousay rivers which may affect neighborhoods such as Onaref, Socaret and Burkina.<br>
+The data generated through Open Cities Ngaoundéré will enable municipal and local authorities to better plan urban growth, land use, urban development and the various interventions in the city in the event of floods and landslides. The city dwellers of Ngaoundéré will then live in a protected and better environment. In the long term, Ngaoundéré will be able to serve as an example of success, for its neighboring localities, in urban planning and computer-aided management of natural resources.
+</p>
 </div>
-
-<p>{% include download-report.html %}</p>
-
 <div id="map"></div>
 <p><span id="aerial"></span> {% include download-data.html %}</p>
-
 {% include mapping-progress.html %}
-<iframe
-    src="https://osm-analytics.org/#/compare/gist:f7170443229f498dc3a58c672e67b618/2018...now/buildings/embed/opendri"
-    scrolling="no" width="100%" height="600"></iframe>
-
-    {% include data-quality.html %}
-<iframe src="https://osm-analytics.org/#/gaps/gist:f7170443229f498dc3a58c672e67b618/buildings-vs-ghs/embed/opendri"
-    scrolling="no" width="100%" height="600"></iframe>
+<iframe src="https://osm-analytics.org/#/compare/gist:f7170443229f498dc3a58c672e67b618/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
+{% include data-quality.html %}
+<iframe src="https://osm-analytics.org/#/gaps/gist:f7170443229f498dc3a58c672e67b618/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 
 {% include osm-community-dynamics.html %}
 
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        zoom: 14,
-        center: [13.58, 7.32]
-    });
+mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    zoom: 14,
+    center: [13.58, 7.32]
+});
 
-    map.on('load', function () {
+map.on('load', function() {
 
-        map.addLayer({
-            'id': 'one',
+    map.addLayer({
+        'id': 'one',
+        'type': 'raster',
+        'source': {
             'type': 'raster',
-            'source': {
-                'type': 'raster',
-                'tiles': [
-                    'https://tiles.openaerialmap.org/5c645514eaa5bc0007eea42d/0/5c645514eaa5bc0007eea42e/{z}/{x}/{y}',
-                ],
-                'tileSize': 256
-            },
-            'layout': {
-                'visibility': 'none'
-            },
-            'paint': {}
-        }, '');
-        map.addLayer({
-            'id': 'two',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5c645514eaa5bc0007eea42d/0/5c645514eaa5bc0007eea42e/{z}/{x}/{y}',
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+    map.addLayer({
+        'id': 'two',
+        'type': 'raster',
+        'source': {
             'type': 'raster',
-            'source': {
-                'type': 'raster',
-                'tiles': [
-                    'https://tiles.openaerialmap.org/5c657b9f1fa6f100070431f8/0/5c657b9f1fa6f100070431f9/{z}/{x}/{y}'
-                ],
-                'tileSize': 256
-            },
-            'layout': {
-                'visibility': 'none'
-            },
-            'paint': {}
-        }, '');
-    });
+            'tiles': [
+              'https://tiles.openaerialmap.org/5c657b9f1fa6f100070431f8/0/5c657b9f1fa6f100070431f9/{z}/{x}/{y}'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+});
 
-    map.addControl(new mapboxgl.NavigationControl(), 'top-left');
-    map.dragRotate.disable();
-    map.touchZoomRotate.disableRotation();
-    map.scrollZoom.disable();
+map.addControl(new mapboxgl.NavigationControl(),'top-left');
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
+map.scrollZoom.disable();
 
 
-    toggleLayer(['one', 'two'], 'aerial');
+toggleLayer(['one', 'two'], 'aerial');
 
-    function toggleLayer(ids, name) {
-        var link = document.createElement('a');
-        link.href = '#';
-        link.className = 'button special';
-        link.textContent = 'View Aerial Imagery';
+function toggleLayer(ids, name) {
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'button special';
+    link.textContent = 'View Aerial Imagery';
 
-        link.onclick = function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            for (layers in ids) {
-                var visibility = map.getLayoutProperty(ids[layers], 'visibility');
-                if (visibility === 'visible') {
-                    map.setLayoutProperty(ids[layers], 'visibility', 'none');
-                    this.className = 'button special';
-                    this.textContent = 'Hide Aerial Imagery';
-                } else {
-                    this.className = 'button special';
-                    map.setLayoutProperty(ids[layers], 'visibility', 'visible');
-                    this.textContent = 'View Aerial Imagery';
-                }
+    link.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        for (layers in ids){
+            var visibility = map.getLayoutProperty(ids[layers], 'visibility');
+            if (visibility === 'visible') {
+                map.setLayoutProperty(ids[layers], 'visibility', 'none');
+                this.className = 'button special';
+                this.textContent = 'Hide Aerial Imagery';
+            } else {
+                this.className = 'button special';
+                map.setLayoutProperty(ids[layers], 'visibility', 'visible');
+                this.textContent = 'View Aerial Imagery';
             }
+         }
 
-        };
+    };
 
-        var layers = document.getElementById('aerial');
-        layers.appendChild(link);
-    }
+    var layers = document.getElementById('aerial');
+    layers.appendChild(link);
+}
+
 </script>

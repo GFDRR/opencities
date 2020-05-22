@@ -7,128 +7,104 @@ zoom: 11
 center-x: 11.9
 center-y: -4.78
 export: 5c91e31f-4af7-4f9c-b557-78a675ec44ee
-report: Open_Cities_Pointe-Noire_Final_Report.pdf
 ---
 <div id='intro'>
-    <p>
-        Pointe-Noire, Congo’s economic capital and home to a quarter of the country’s population, faces recurring
-        challenges as population growth pushes households into flood and erosion-prone areas. More than half of
-        Pointe-Noire’s urban space is occupied by unplanned settlements built from fragile materials. During the rainy
-        season several of these neighborhoods become inaccessible due to flooding. Pointe-Noire has seen disease
-        outbreak from contaminated wells and flooded latrines, and hundreds of residents have been displaced by recent
-        flood events. The city also suffers from landslides due to deforestation and fragile soils. Efforts to reduce
-        the population’s vulnerability to climate related hazards have been inhibited by lack of effective urban
-        planning, limited investment, and inadequate institutional capacity of key stakeholders at the national and
-        local levels. Local Government has limited GIS capacity, and cartographic products of the urban infrastructure
-        are outdated, incomplete, or inaccessible.<br>
-        The OpenStreetMap data for Pointe-Noire is still relatively empty. Updated georeferenced information would
-        inform and facilitate resilient and inclusive urban planning.<br>
-        The Open Cities Pointe-Noire project complements the World Bank’s DURQuaP project and Integrating Urban
-        Resilience TA through tool development and capacity building activities in the City of Pointe-Noire. The project
-        will support intermediary outcomes to i) engage counterparts and raise greater awareness of GIS-based planning
-        and governance and ii) increase urban resilience through risk management tools. Specifically, community mapping
-        of exposure and vulnerability in OSM and associated mapping tools will contribute fundamental data layers for i)
-        a basic early warning system for flooding using a GIS-based disaster risk management system and ii) municipal
-        base maps.<br>
-        The Open Cities Pointe-Noire project will target two flood-prone neighborhoods covered by the DURQuaP project:
-        i) Quartier Mboukou (arroundissement de Tié Tié) and ii) Quartier Tchiniambi (arroundissement de Louandjili).
-        Mapping activities will focus on collecting attributes related to buildings, drainage and roads to help
-        counterparts with management and maintenance. The Municipality of Pointe-Noire will serve as the Open Cities
-        Pointe-Noire project’s primary government counterpart.
-    </p>
+<p>
+Pointe-Noire, Congo’s economic capital and home to a quarter of the country’s population, faces recurring challenges as population growth pushes households into flood and erosion-prone areas. More than half of Pointe-Noire’s urban space is occupied by unplanned settlements built from fragile materials. During the rainy season several of these neighborhoods become inaccessible due to flooding. Pointe-Noire has seen disease outbreak from contaminated wells and flooded latrines, and hundreds of residents have been displaced by recent flood events. The city also suffers from landslides due to deforestation and fragile soils. Efforts to reduce the population’s vulnerability to climate related hazards have been inhibited by lack of effective urban planning, limited investment, and inadequate institutional capacity of key stakeholders at the national and local levels. Local Government has limited GIS capacity, and cartographic products of the urban infrastructure are outdated, incomplete, or inaccessible.<br>
+The OpenStreetMap data for Pointe-Noire is still relatively empty. Updated georeferenced information would inform and facilitate resilient and inclusive urban planning.<br>
+The Open Cities Pointe-Noire project complements the World Bank’s DURQuaP project and Integrating Urban Resilience TA through tool development and capacity building activities in the City of Pointe-Noire. The project will support intermediary outcomes to i) engage counterparts and raise greater awareness of GIS-based planning and governance and ii) increase urban resilience through risk management tools. Specifically, community mapping of exposure and vulnerability in OSM and associated mapping tools will contribute fundamental data layers for i) a basic early warning system for flooding using a GIS-based disaster risk management system and ii) municipal base maps.<br>
+The Open Cities Pointe-Noire project will target two flood-prone neighborhoods covered by the DURQuaP project: i) Quartier Mboukou (arroundissement de Tié Tié) and ii) Quartier Tchiniambi (arroundissement de Louandjili). Mapping activities will focus on collecting attributes related to buildings, drainage and roads to help counterparts with management and maintenance. The Municipality of Pointe-Noire will serve as the Open Cities Pointe-Noire project’s primary government counterpart.
+</p>
 </div>
-
-<p>{% include download-report.html %}</p>
 
 <div id='map'></div>
 <p><span id="aerial"></span> {% include download-data.html %}</p>
 
 {% include mapping-progress.html %}
-<iframe
-    src="https://osm-analytics.org/#/compare/gist:0ecaa9dbcaf40b29053a2d87d877fd83/2018...now/buildings/embed/opendri"
-    scrolling="no" width="100%" height="600"></iframe>
+<iframe src="https://osm-analytics.org/#/compare/gist:0ecaa9dbcaf40b29053a2d87d877fd83/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 {% include data-quality.html %}
-<iframe src="https://osm-analytics.org/#/gaps/gist:0ecaa9dbcaf40b29053a2d87d877fd83/buildings-vs-ghs/embed/opendri"
-    scrolling="no" width="100%" height="600"></iframe>
+<iframe src="https://osm-analytics.org/#/gaps/gist:0ecaa9dbcaf40b29053a2d87d877fd83/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 
 {% include osm-community-dynamics.html %}
 
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        zoom: 15,
-        center: [11.885, -4.775]
-    });
+  
+mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    zoom: 15,
+    center: [11.885, -4.775]
+});
 
-    map.on('load', function () {
+map.on('load', function() {
 
-        map.addLayer({
-            'id': 'one',
+    map.addLayer({
+        'id': 'one',
+        'type': 'raster',
+        'source': {
             'type': 'raster',
-            'source': {
-                'type': 'raster',
-                'tiles': [
-                    'https://tiles.openaerialmap.org/5c30a233be6ca30005c74da8/0/5c30a233be6ca30005c74da9/{z}/{x}/{y}',
-                ],
-                'tileSize': 256
-            },
-            'layout': {
-                'visibility': 'none'
-            },
-            'paint': {}
-        }, '');
-        map.addLayer({
-            'id': 'two',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5c30a233be6ca30005c74da8/0/5c30a233be6ca30005c74da9/{z}/{x}/{y}',
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+    map.addLayer({
+        'id': 'two',
+        'type': 'raster',
+        'source': {
             'type': 'raster',
-            'source': {
-                'type': 'raster',
-                'tiles': [
-                    'https://tiles.openaerialmap.org/5c30a233be6ca30005c74da8/1/5c30a233be6ca30005c74daa/{z}/{x}/{y}'
-                ],
-                'tileSize': 256
-            },
-            'layout': {
-                'visibility': 'none'
-            },
-            'paint': {}
-        }, '');
-    });
+            'tiles': [
+              'https://tiles.openaerialmap.org/5c30a233be6ca30005c74da8/1/5c30a233be6ca30005c74daa/{z}/{x}/{y}'
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+});
 
-    map.addControl(new mapboxgl.NavigationControl(), 'top-left');
-    map.dragRotate.disable();
-    map.touchZoomRotate.disableRotation();
-    map.scrollZoom.disable();
+map.addControl(new mapboxgl.NavigationControl(),'top-left');
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
+map.scrollZoom.disable();
 
 
-    toggleLayer(['one', 'two'], 'aerial');
+toggleLayer(['one', 'two'], 'aerial');
 
-    function toggleLayer(ids, name) {
-        var link = document.createElement('a');
-        link.href = '#';
-        link.className = 'button special';
-        link.textContent = 'View Aerial Imagery';
+function toggleLayer(ids, name) {
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'button special';
+    link.textContent = 'View Aerial Imagery';
 
-        link.onclick = function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            for (layers in ids) {
-                var visibility = map.getLayoutProperty(ids[layers], 'visibility');
-                if (visibility === 'visible') {
-                    map.setLayoutProperty(ids[layers], 'visibility', 'none');
-                    this.className = 'button special';
-                    this.textContent = 'Hide Aerial Imagery';
-                } else {
-                    this.className = 'button special';
-                    map.setLayoutProperty(ids[layers], 'visibility', 'visible');
-                    this.textContent = 'View Aerial Imagery';
-                }
+    link.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        for (layers in ids){
+            var visibility = map.getLayoutProperty(ids[layers], 'visibility');
+            if (visibility === 'visible') {
+                map.setLayoutProperty(ids[layers], 'visibility', 'none');
+                this.className = 'button special';
+                this.textContent = 'Hide Aerial Imagery';
+            } else {
+                this.className = 'button special';
+                map.setLayoutProperty(ids[layers], 'visibility', 'visible');
+                this.textContent = 'View Aerial Imagery';
             }
+         }
 
-        };
+    };
 
-        var layers = document.getElementById('aerial');
-        layers.appendChild(link);
-    }
+    var layers = document.getElementById('aerial');
+    layers.appendChild(link);
+}
+
 </script>
