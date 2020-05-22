@@ -7,105 +7,86 @@ zoom: 11
 center-x: 32.5825
 center-y: 0.32
 export: 7f29cb00-9469-471e-a78b-aa42eb1c5214
-report: Open_Cities_Uganda_Final_Report.pdf
 ---
 
 <div id='intro'>
-    <p>The World Bank is supporting the Government of Uganda to increase resilience against droughts and food insecurity
-        through a Disaster Risk Financing (DRF) program. One goal of this program is to improve access to baseline data
-        and risk related information to quicken the decision making process. The <a href="/uganda/">Uganda Open Mapping
-            Program</a> is aims to develop technical capacity at the local and national level in the open mapping. Ggaba
-        parish, Kampala has been identified as the priority area to be mapped.
-        Under the supervision of the World Bank, a team of local companies (MapUganda and GeoGecko) and international
-        entities (HOT and ITHACA) are working to ensure that the planned activities are successfully carried out and the
-        expected outcomes are met. Local and national stakeholders (UBOS, KCCA, OPM) are involved since the beginning of
-        the project to provide requirements in terms of features and attributes to be mapped and support the
-        identification of the most suitable target area in Kampala.
-        One of the main goal is to significantly increase the coverage and the level of detail of reference cartographic
-        data in a target area in Kampala, enabling national and local authorities (e.g. UBOS and KCCA) as well as other
-        institutions/companies to exploit such data for their mandate and for facilitating their daily tasks, such as;
-        addressing risk management related tasks; keeping updated health and education facility inventories; supporting
-        the census data collection and management; and, showcasing the mapping and analytical power of the data
-        collected.
-    </p>
+<p>The World Bank is supporting the Government of Uganda to increase resilience against droughts and food insecurity through a Disaster Risk Financing (DRF) program. One goal of this program is to improve access to baseline data and risk related information to quicken the decision making process. The <a href="/uganda/">Uganda Open Mapping Program</a> is aims to develop technical capacity at the local and national level in the open mapping. Ggaba parish, Kampala has been identified as the priority area to be mapped.
+Under the supervision of the World Bank, a team of local companies (MapUganda and GeoGecko) and international entities (HOT and ITHACA) are working to ensure that the planned activities are successfully carried out and the expected outcomes are met. Local and national stakeholders (UBOS, KCCA, OPM) are involved since the beginning of the project to provide requirements in terms of features and attributes to be mapped and support the identification of the most suitable target area in Kampala.
+One of the main goal is to significantly increase the coverage and the level of detail of reference cartographic data in a target area in Kampala, enabling national and local authorities (e.g. UBOS and KCCA) as well as other institutions/companies to exploit such data for their mandate and for facilitating their daily tasks, such as; addressing risk management related tasks; keeping updated health and education facility inventories; supporting the census data collection and management; and, showcasing the mapping and analytical power of the data collected.
+</p>
 </div>
-
-<p>{% include download-report.html %}</p>
-
 <div id='map'></div>
 <p><span id="aerial"></span> {% include download-data.html %}</p>
 
 {% include mapping-progress.html %}
-<iframe
-    src="https://osm-analytics.org/#/compare/gist:f3a5a7c9a69dad39a0098295b4afea7a/2018...now/buildings/embed/opendri"
-    scrolling="no" width="100%" height="600"></iframe>
+<iframe src="https://osm-analytics.org/#/compare/gist:f3a5a7c9a69dad39a0098295b4afea7a/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 {% include data-quality.html %}
-<iframe src="https://osm-analytics.org/#/gaps/gist:f3a5a7c9a69dad39a0098295b4afea7a/buildings-vs-ghs/embed/opendri"
-    scrolling="no" width="100%" height="600"></iframe>
+<iframe src="https://osm-analytics.org/#/gaps/gist:f3a5a7c9a69dad39a0098295b4afea7a/buildings-vs-ghs/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 
 {% include osm-community-dynamics.html %}
 
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        zoom: 15,
-        center: [32.63544023036957, 0.2559382152503518]
-    });
+mapboxgl.accessToken = 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    zoom: 15,
+    center: [32.63544023036957, 0.2559382152503518]
+});
 
-    map.on('load', function () {
+map.on('load', function() {
 
-        map.addLayer({
-            'id': 'one',
+    map.addLayer({
+        'id': 'one',
+        'type': 'raster',
+        'source': {
             'type': 'raster',
-            'source': {
-                'type': 'raster',
-                'tiles': [
-                    'https://tiles.openaerialmap.org/5bbefc2efb28140006123424/0/5bbefc2efb28140006123425/{z}/{x}/{y}',
-                ],
-                'tileSize': 256
-            },
-            'layout': {
-                'visibility': 'none'
-            },
-            'paint': {}
-        }, '');
-    });
+            'tiles': [
+              'https://tiles.openaerialmap.org/5bbefc2efb28140006123424/0/5bbefc2efb28140006123425/{z}/{x}/{y}',
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+});
 
-    map.addControl(new mapboxgl.NavigationControl(), 'top-left');
-    map.dragRotate.disable();
-    map.touchZoomRotate.disableRotation();
-    map.scrollZoom.disable();
+map.addControl(new mapboxgl.NavigationControl(),'top-left');
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
+map.scrollZoom.disable();
 
 
-    toggleLayer(['one'], 'aerial');
+toggleLayer(['one'], 'aerial');
 
-    function toggleLayer(ids, name) {
-        var link = document.createElement('a');
-        link.href = '#';
-        link.className = 'button special';
-        link.textContent = 'View Aerial Imagery';
+function toggleLayer(ids, name) {
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'button special';
+    link.textContent = 'View Aerial Imagery';
 
-        link.onclick = function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            for (layers in ids) {
-                var visibility = map.getLayoutProperty(ids[layers], 'visibility');
-                if (visibility === 'visible') {
-                    map.setLayoutProperty(ids[layers], 'visibility', 'none');
-                    this.className = 'button special';
-                    this.textContent = 'Hide Aerial Imagery';
-                } else {
-                    this.className = 'button special';
-                    map.setLayoutProperty(ids[layers], 'visibility', 'visible');
-                    this.textContent = 'View Aerial Imagery';
-                }
+    link.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        for (layers in ids){
+            var visibility = map.getLayoutProperty(ids[layers], 'visibility');
+            if (visibility === 'visible') {
+                map.setLayoutProperty(ids[layers], 'visibility', 'none');
+                this.className = 'button special';
+                this.textContent = 'Hide Aerial Imagery';
+            } else {
+                this.className = 'button special';
+                map.setLayoutProperty(ids[layers], 'visibility', 'visible');
+                this.textContent = 'View Aerial Imagery';
             }
+         }
 
-        };
+    };
 
-        var layers = document.getElementById('aerial');
-        layers.appendChild(link);
-    }
+    var layers = document.getElementById('aerial');
+    layers.appendChild(link);
+}
+
 </script>
