@@ -36,8 +36,23 @@ export: c650a0eb-4870-49ac-9e14-492544e21c40
 
 	map.on('load', function() {
 
-	    map.addLayer({
+		map.addLayer({
 	        'id': 'one',
+	        'type': 'raster',
+	        'source': {
+	            'type': 'raster',
+	            'tiles': [
+	              'https://tiles.openaerialmap.org/5be9bb18080ac000051474fd/0/5be9bb18080ac000051474fe/{z}/{x}/{y}'
+	            ],
+	            'tileSize': 256
+	        },
+	        'layout': {
+	            'visibility': 'none'
+	        },
+	        'paint': {}
+	    }, '');
+		map.addLayer({
+	        'id': 'two',
 	        'type': 'raster',
 	        'source': {
 	            'type': 'raster',
@@ -52,7 +67,7 @@ export: c650a0eb-4870-49ac-9e14-492544e21c40
 	        'paint': {}
 	    }, '');
 	    map.addLayer({
-	        'id': 'two',
+	        'id': 'three',
 	        'type': 'raster',
 	        'source': {
 	            'type': 'raster',
@@ -66,13 +81,13 @@ export: c650a0eb-4870-49ac-9e14-492544e21c40
 	        },
 	        'paint': {}
 	    }, '');
-			map.addLayer({
-	        'id': 'three',
+		map.addLayer({
+	        'id': 'four',
 	        'type': 'raster',
 	        'source': {
 	            'type': 'raster',
 	            'tiles': [
-	              'https://tiles.openaerialmap.org/5be9bb18080ac000051474fd/0/5be9bb18080ac000051474fe/{z}/{x}/{y}'
+	              'https://tiles.openaerialmap.org/5d2d0ab4f416f40006cffcc1/0/5d2d0ab4f416f40006cffcc2/{z}/{x}/{y}'
 	            ],
 	            'tileSize': 256
 	        },
@@ -89,7 +104,7 @@ export: c650a0eb-4870-49ac-9e14-492544e21c40
 	map.scrollZoom.disable();
 
 
-	toggleLayer(['one', 'two', 'three'], 'aerial');
+	toggleLayer(['one', 'two', 'three', 'four'], 'aerial');
 
 	function toggleLayer(ids, name) {
 	    var link = document.createElement('a');
