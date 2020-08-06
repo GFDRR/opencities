@@ -75,11 +75,11 @@ function toggleLayer(ids, name) {
             if (visibility === 'visible') {
                 map.setLayoutProperty(ids[layers], 'visibility', 'none');
                 this.className = 'button special';
-                this.textContent = 'Hide Aerial Imagery';
+                this.textContent = 'View Aerial Imagery';
             } else {
                 this.className = 'button special';
                 map.setLayoutProperty(ids[layers], 'visibility', 'visible');
-                this.textContent = 'View Aerial Imagery';
+                this.textContent = 'Hide Aerial Imagery';
             }
          }
 
