@@ -14,7 +14,7 @@ export: 3bcd8b93-fee3-42d1-b81b-1b3b37200cc2
 </div>
 
   <div id="map"></div>
-	<p>{% include download-data.html %}</p>
+	<p><span id="aerial"></span> {% include download-data.html %}</p>
 	{% include mapping-progress.html %}
 	<iframe src="https://osm-analytics.org/#/compare/gist:2fedd5a07dce9d628b186bbbf5fcfbc9/2018...now/buildings/embed/opendri" scrolling="no" width="100%" height="600" ></iframe>
 	{% include data-quality.html %}
@@ -28,13 +28,64 @@ export: 3bcd8b93-fee3-42d1-b81b-1b3b37200cc2
 		var map = new mapboxgl.Map({
 		    container: 'map',
 		    style: 'mapbox://styles/mapbox/streets-v11',
-		    zoom: 13,
-		    center: [15.29, -4.36]
+		    zoom: 14,
+		    center: [15.34, -4.41]
 		});
 
-		map.addControl(new mapboxgl.NavigationControl(),'top-left');
-		map.dragRotate.disable();
-		map.touchZoomRotate.disableRotation();
-		map.scrollZoom.disable();
+map.on('load', function() {
+
+    map.addLayer({
+        'id': 'one',
+        'type': 'raster',
+        'source': {
+            'type': 'raster',
+            'tiles': [
+              'https://tiles.openaerialmap.org/5b2375292b6a08001185f7fe/0/5b2375292b6a08001185f7ff/{z}/{x}/{y}',
+            ],
+            'tileSize': 256
+        },
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {}
+    }, '');
+});
+
+map.addControl(new mapboxgl.NavigationControl(),'top-left');
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
+map.scrollZoom.disable();
+
+
+toggleLayer(['one'], 'aerial');
+
+function toggleLayer(ids, name) {
+	var link = document.createElement('a');
+	link.href = '#';
+	link.className = 'button special';
+	link.textContent = 'View Aerial Imagery';
+
+	link.onclick = function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		for (layers in ids){
+			var visibility = map.getLayoutProperty(ids[layers], 'visibility');
+			if (visibility === 'visible') {
+				map.setLayoutProperty(ids[layers], 'visibility', 'none');
+				this.className = 'button special';
+				this.textContent = 'View Aerial Imagery';
+			} else {
+				this.className = 'button special';
+				map.setLayoutProperty(ids[layers], 'visibility', 'visible');
+				this.textContent = 'Hide Aerial Imagery';
+			}
+		}
+
+	};
+
+	var layers = document.getElementById('aerial');
+	layers.appendChild(link);
+}
+
 
 	</script>
